@@ -31,6 +31,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="isLoginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mld-B3-p2s"/>
+                                    <segue destination="JRb-lU-tFM" kind="show" id="cuy-8Q-9hk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,6 +59,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="947.82608695652186" y="93.75"/>
+        </scene>
+        <!--Books View Controller-->
+        <scene sceneID="LEg-zn-9cm">
+            <objects>
+                <viewController id="JRb-lU-tFM" customClass="BooksViewController" customModule="iosStudying" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="17H-nQ-PwZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xJy-6P-dgQ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rSZ-FA-DrJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xJy-6P-dgQ" firstAttribute="leading" secondItem="rSZ-FA-DrJ" secondAttribute="leading" id="DUC-5U-SXE"/>
+                            <constraint firstItem="xJy-6P-dgQ" firstAttribute="top" secondItem="rSZ-FA-DrJ" secondAttribute="top" id="eIl-pm-gll"/>
+                            <constraint firstItem="rSZ-FA-DrJ" firstAttribute="bottom" secondItem="xJy-6P-dgQ" secondAttribute="bottom" id="vdx-fq-058"/>
+                            <constraint firstItem="rSZ-FA-DrJ" firstAttribute="trailing" secondItem="xJy-6P-dgQ" secondAttribute="trailing" id="yQe-sm-eX8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ic0-8X-W0R"/>
+                    <connections>
+                        <outlet property="tableView" destination="xJy-6P-dgQ" id="scw-w5-A7c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jMp-Fv-Ekd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1826" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nTU-BR-U8E">
