@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A81A2262666C143008D80E9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A2252666C143008D80E9 /* Book.swift */; };
+		4A81A2292666C560008D80E9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A2282666C560008D80E9 /* NetworkService.swift */; };
 		4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842A2665630400680E62 /* AppDelegate.swift */; };
 		4A8B842D2665630400680E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842C2665630400680E62 /* SceneDelegate.swift */; };
 		4A8B842F2665630400680E62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842E2665630400680E62 /* LoginViewController.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		2545A4DC13E40151EABF16B2 /* Pods-iosStudying.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosStudying.debug.xcconfig"; path = "Target Support Files/Pods-iosStudying/Pods-iosStudying.debug.xcconfig"; sourceTree = "<group>"; };
+		4A81A2252666C143008D80E9 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Book.swift; path = iosStudying/Book.swift; sourceTree = SOURCE_ROOT; };
+		4A81A2282666C560008D80E9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4A8B84272665630400680E62 /* iosStudying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosStudying.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8B842A2665630400680E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A8B842C2665630400680E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +54,23 @@
 				2545A4DC13E40151EABF16B2 /* Pods-iosStudying.debug.xcconfig */,
 				5FAB9D88435AEDA66863F3ED /* Pods-iosStudying.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4A81A2242666C124008D80E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A81A2252666C143008D80E9 /* Book.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A81A2272666C4EB008D80E9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4A81A2282666C560008D80E9 /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		4A8B841E2665630400680E62 = {
@@ -78,6 +97,7 @@
 				4A8B842A2665630400680E62 /* AppDelegate.swift */,
 				4A8B842C2665630400680E62 /* SceneDelegate.swift */,
 				4A8B843E266563F200680E62 /* Flows */,
+				4A81A2272666C4EB008D80E9 /* Services */,
 				4A8B84302665630400680E62 /* Main.storyboard */,
 				4A8B84332665630500680E62 /* Assets.xcassets */,
 				4A8B84352665630500680E62 /* LaunchScreen.storyboard */,
@@ -106,6 +126,7 @@
 		4A8B844226656B0E00680E62 /* Books */ = {
 			isa = PBXGroup;
 			children = (
+				4A81A2242666C124008D80E9 /* Models */,
 				4A8B844026656B0600680E62 /* BooksViewController.swift */,
 			);
 			path = Books;
@@ -235,7 +256,9 @@
 			files = (
 				4A8B842F2665630400680E62 /* LoginViewController.swift in Sources */,
 				4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */,
+				4A81A2262666C143008D80E9 /* Book.swift in Sources */,
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
+				4A81A2292666C560008D80E9 /* NetworkService.swift in Sources */,
 				4A8B842D2665630400680E62 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
