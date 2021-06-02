@@ -7,7 +7,19 @@
 
 import Foundation
 
-class BooksRoute: Route {
+enum BooksRoute {
+    case books
+    case chapter(id: String)
+}
+
+extension BooksRoute: Route {
     
-    var url: String { "v2/book" }
+    var url: String {
+        switch self {
+        case .books:
+            return "/book"
+        case let .chapter(id):
+            return "/book/\(id)/chapter"
+        }
+    }
 }

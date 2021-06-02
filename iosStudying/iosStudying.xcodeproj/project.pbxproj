@@ -10,6 +10,8 @@
 		4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F792667F1F20055B34F /* HTTPClient.swift */; };
 		4A779F7C2667F32E0055B34F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7B2667F32E0055B34F /* Route.swift */; };
 		4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7D2667F6EE0055B34F /* BooksRoute.swift */; };
+		4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F80266809DB0055B34F /* ChaptersViewController.swift */; };
+		4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F83266818F70055B34F /* ChapterResponse.swift */; };
 		4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A2252666C143008D80E9 /* BookResponse.swift */; };
 		4A81A2292666C560008D80E9 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A2282666C560008D80E9 /* BookService.swift */; };
 		4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842A2665630400680E62 /* AppDelegate.swift */; };
@@ -27,6 +29,8 @@
 		4A779F792667F1F20055B34F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4A779F7B2667F32E0055B34F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4A779F7D2667F6EE0055B34F /* BooksRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRoute.swift; sourceTree = "<group>"; };
+		4A779F80266809DB0055B34F /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewController.swift; sourceTree = "<group>"; };
+		4A779F83266818F70055B34F /* ChapterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterResponse.swift; sourceTree = "<group>"; };
 		4A81A2252666C143008D80E9 /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookResponse.swift; path = iosStudying/BookResponse.swift; sourceTree = SOURCE_ROOT; };
 		4A81A2282666C560008D80E9 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
 		4A8B84272665630400680E62 /* iosStudying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosStudying.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +82,23 @@
 				4A779F7B2667F32E0055B34F /* Route.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		4A779F7F266809AE0055B34F /* Chapters */ = {
+			isa = PBXGroup;
+			children = (
+				4A779F82266818DF0055B34F /* Models */,
+				4A779F80266809DB0055B34F /* ChaptersViewController.swift */,
+			);
+			path = Chapters;
+			sourceTree = "<group>";
+		};
+		4A779F82266818DF0055B34F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A779F83266818F70055B34F /* ChapterResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4A81A2242666C124008D80E9 /* Models */ = {
@@ -135,6 +156,7 @@
 			children = (
 				4A8B843F266563FB00680E62 /* Login */,
 				4A8B844226656B0E00680E62 /* Books */,
+				4A779F7F266809AE0055B34F /* Chapters */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -284,9 +306,11 @@
 				4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */,
 				4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */,
 				4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */,
+				4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */,
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
+				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,
 				4A8B842D2665630400680E62 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

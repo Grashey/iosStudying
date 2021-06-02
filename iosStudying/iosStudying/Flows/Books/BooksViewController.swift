@@ -7,35 +7,47 @@
 
 import UIKit
 
-class BooksViewController: UIViewController, UITableViewDataSource {
+class BooksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var book: BookResponse?
+    var books: BookResponse?
     let service = BookService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         
         getData()
     }
     
+    func getData() {
+        service.fetchBooks() {
+            self.books = $0
+            self.tableView.reloadData()
+        }
+    }
+}
+
+extension BooksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return book?.docs.count ?? 0
+        return books?.docs.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()),
-              let book = book else { return UITableViewCell() }
+              let book = books else { return UITableViewCell() }
         cell.textLabel?.text = book.docs[indexPath.row].name
         return cell
     }
-    
-    func getData() {
-        service.fetchBook {
-            self.book = $0
-            self.tableView.reloadData()
+}
+
+extension BooksViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let id  = books?.docs[indexPath.row].id {
+            let vc = ChaptersViewController(bookID: id)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
