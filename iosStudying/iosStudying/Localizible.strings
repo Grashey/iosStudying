@@ -1,0 +1,12 @@
+/* 
+  Localizible.strings
+  iosStudying
+
+  Created by Aleksandr Fetisov on 03.06.2021.
+  
+*/
+
+"LoginButtonTitle" = "Login";
+"LoginViewControllerTitle" = "Auth";
+"BooksViewControllerTitle" = "Books";
+"ChaptersViewControllerTitle" = "Chapters";
