@@ -30,7 +30,7 @@ extension Route {
     
     var encoding: ParameterEncoding { URLEncoding.default }
     
-    var baseURL: String { "https://the-one-api.dev/" }
+    var baseURL: String { "https://the-one-api.dev/v2" }
     
     var headers: HTTPHeaders { [:] }
     
