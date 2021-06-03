@@ -7,5 +7,6 @@ target 'iosStudying' do
 
   # Pods for iosStudying
   pod 'Alamofire', '~> 5.4.3'
+  pod 'R.swift'
 
 end
