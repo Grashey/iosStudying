@@ -9,12 +9,18 @@ import UIKit
 
 class BooksViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    let tableView = UITableView()
+    
     var books: BookResponse?
     let service = BookService()
     
+    override func loadView() {
+        view = tableView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = R.string.localizible.booksViewControllerTitle()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())

@@ -31,6 +31,7 @@ class ChaptersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = R.string.localizible.chaptersViewControllerTitle()
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E015D26692B1E001E5D73 /* R.generated.swift */; };
+		4A6E01622669442A001E5D73 /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E01612669442A001E5D73 /* Localizible.strings */; };
 		4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F792667F1F20055B34F /* HTTPClient.swift */; };
 		4A779F7C2667F32E0055B34F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7B2667F32E0055B34F /* Route.swift */; };
 		4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7D2667F6EE0055B34F /* BooksRoute.swift */; };
@@ -15,9 +17,7 @@
 		4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A2252666C143008D80E9 /* BookResponse.swift */; };
 		4A81A2292666C560008D80E9 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A2282666C560008D80E9 /* BookService.swift */; };
 		4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842A2665630400680E62 /* AppDelegate.swift */; };
-		4A8B842D2665630400680E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842C2665630400680E62 /* SceneDelegate.swift */; };
 		4A8B842F2665630400680E62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842E2665630400680E62 /* LoginViewController.swift */; };
-		4A8B84322665630400680E62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A8B84302665630400680E62 /* Main.storyboard */; };
 		4A8B84342665630500680E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8B84332665630500680E62 /* Assets.xcassets */; };
 		4A8B84372665630500680E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A8B84352665630500680E62 /* LaunchScreen.storyboard */; };
 		4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B844026656B0600680E62 /* BooksViewController.swift */; };
@@ -26,18 +26,18 @@
 
 /* Begin PBXFileReference section */
 		2545A4DC13E40151EABF16B2 /* Pods-iosStudying.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosStudying.debug.xcconfig"; path = "Target Support Files/Pods-iosStudying/Pods-iosStudying.debug.xcconfig"; sourceTree = "<group>"; };
+		4A6E015D26692B1E001E5D73 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		4A6E01612669442A001E5D73 /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		4A779F792667F1F20055B34F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4A779F7B2667F32E0055B34F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4A779F7D2667F6EE0055B34F /* BooksRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRoute.swift; sourceTree = "<group>"; };
 		4A779F80266809DB0055B34F /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewController.swift; sourceTree = "<group>"; };
 		4A779F83266818F70055B34F /* ChapterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterResponse.swift; sourceTree = "<group>"; };
-		4A81A2252666C143008D80E9 /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookResponse.swift; path = iosStudying/BookResponse.swift; sourceTree = SOURCE_ROOT; };
+		4A81A2252666C143008D80E9 /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookResponse.swift; path = iosStudying/Flows/Books/Models/BookResponse.swift; sourceTree = SOURCE_ROOT; };
 		4A81A2282666C560008D80E9 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
 		4A8B84272665630400680E62 /* iosStudying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosStudying.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8B842A2665630400680E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A8B842C2665630400680E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4A8B842E2665630400680E62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4A8B84312665630400680E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A8B84332665630500680E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A8B84362665630500680E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A8B84382665630500680E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,11 +139,11 @@
 		4A8B84292665630400680E62 /* iosStudying */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E015D26692B1E001E5D73 /* R.generated.swift */,
+				4A6E01612669442A001E5D73 /* Localizible.strings */,
 				4A779F772667F1CF0055B34F /* Core */,
 				4A8B843E266563F200680E62 /* Flows */,
 				4A8B842A2665630400680E62 /* AppDelegate.swift */,
-				4A8B842C2665630400680E62 /* SceneDelegate.swift */,
-				4A8B84302665630400680E62 /* Main.storyboard */,
 				4A8B84332665630500680E62 /* Assets.xcassets */,
 				4A8B84352665630500680E62 /* LaunchScreen.storyboard */,
 				4A8B84382665630500680E62 /* Info.plist */,
@@ -195,6 +195,7 @@
 			buildConfigurationList = 4A8B843B2665630500680E62 /* Build configuration list for PBXNativeTarget "iosStudying" */;
 			buildPhases = (
 				A32FCF990CA9D34E3630A1C2 /* [CP] Check Pods Manifest.lock */,
+				4A779F852668F21A0055B34F /* R.swift */,
 				4A8B84232665630400680E62 /* Sources */,
 				4A8B84242665630400680E62 /* Frameworks */,
 				4A8B84252665630400680E62 /* Resources */,
@@ -248,13 +249,34 @@
 			files = (
 				4A8B84372665630500680E62 /* LaunchScreen.storyboard in Resources */,
 				4A8B84342665630500680E62 /* Assets.xcassets in Resources */,
-				4A8B84322665630400680E62 /* Main.storyboard in Resources */,
+				4A6E01622669442A001E5D73 /* Localizible.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A779F852668F21A0055B34F /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"",
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		5740635C35EFDA4ED23372D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,21 +333,13 @@
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
 				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,
-				4A8B842D2665630400680E62 /* SceneDelegate.swift in Sources */,
+				4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4A8B84302665630400680E62 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A8B84312665630400680E62 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4A8B84352665630500680E62 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -462,10 +476,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77NB29ZK26;
 				INFOPLIST_FILE = iosStudying/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IosStudying.iosStudying;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -482,10 +498,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77NB29ZK26;
 				INFOPLIST_FILE = iosStudying/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IosStudying.iosStudying;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
