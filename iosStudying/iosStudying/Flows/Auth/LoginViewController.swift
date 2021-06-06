@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class LoginViewController: UIViewController {
     
@@ -41,7 +42,7 @@ class LoginViewController: UIViewController {
         service.auth(login: login, password: password) { result in
             switch result {
             case let .success(token):
-                print(token)
+                KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
                 DispatchQueue.main.async {
                     let vc = UITabBarController()
                     vc.viewControllers = [BooksViewController(), UIViewController()].map {

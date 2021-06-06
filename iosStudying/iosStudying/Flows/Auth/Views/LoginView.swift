@@ -50,7 +50,7 @@ class LoginView: UIView {
     
     lazy var infoLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.textColor = .systemRed
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
