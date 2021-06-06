@@ -9,9 +9,32 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var loginTextField: UITextField!
-    var passwordTextField: UITextField!
-    var loginButton: UIButton!
+    let borderWidth: CGFloat = 1
+    let borderColor: UIColor = .lightGray
+    
+    lazy var loginTextField: UITextField = {
+        let textField = UITextField()
+        textField.layer.borderWidth = borderWidth
+        textField.layer.borderColor = borderColor.cgColor
+        textField .translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    lazy var passwordTextField: UITextField = {
+        let textField = UITextField()
+        textField.layer.borderWidth = borderWidth
+        textField.layer.borderColor = borderColor.cgColor
+        textField .translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    lazy var loginButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(R.string.localizible.loginButtonTitle(), for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,26 +46,8 @@ class LoginViewController: UIViewController {
     
     private func configureContent() {
         self.view.backgroundColor = .white
-        
-        let borderWidth: CGFloat = 1
-        let borderColor : UIColor = .lightGray
-        
-        loginTextField = UITextField()
-        loginTextField.layer.borderWidth = borderWidth
-        loginTextField.layer.borderColor = borderColor.cgColor
-        loginTextField.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(loginTextField)
-        
-        passwordTextField = UITextField()
-        passwordTextField.layer.borderWidth = borderWidth
-        passwordTextField.layer.borderColor = borderColor.cgColor
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(passwordTextField)
-        
-        loginButton = UIButton()
-        loginButton.setTitle(R.string.localizible.loginButtonTitle(), for: .normal)
-        loginButton.setTitleColor(.blue, for: .normal)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(loginButton)
         
         NSLayoutConstraint.activate([

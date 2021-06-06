@@ -17,7 +17,6 @@
 		4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A2252666C143008D80E9 /* BookResponse.swift */; };
 		4A81A2292666C560008D80E9 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A2282666C560008D80E9 /* BookService.swift */; };
 		4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842A2665630400680E62 /* AppDelegate.swift */; };
-		4A8B842D2665630400680E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842C2665630400680E62 /* SceneDelegate.swift */; };
 		4A8B842F2665630400680E62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B842E2665630400680E62 /* LoginViewController.swift */; };
 		4A8B84342665630500680E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8B84332665630500680E62 /* Assets.xcassets */; };
 		4A8B84372665630500680E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A8B84352665630500680E62 /* LaunchScreen.storyboard */; };
@@ -34,11 +33,10 @@
 		4A779F7D2667F6EE0055B34F /* BooksRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRoute.swift; sourceTree = "<group>"; };
 		4A779F80266809DB0055B34F /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewController.swift; sourceTree = "<group>"; };
 		4A779F83266818F70055B34F /* ChapterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterResponse.swift; sourceTree = "<group>"; };
-		4A81A2252666C143008D80E9 /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookResponse.swift; path = iosStudying/BookResponse.swift; sourceTree = SOURCE_ROOT; };
+		4A81A2252666C143008D80E9 /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookResponse.swift; path = iosStudying/Flows/Books/Models/BookResponse.swift; sourceTree = SOURCE_ROOT; };
 		4A81A2282666C560008D80E9 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
 		4A8B84272665630400680E62 /* iosStudying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosStudying.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8B842A2665630400680E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A8B842C2665630400680E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4A8B842E2665630400680E62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4A8B84332665630500680E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A8B84362665630500680E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				4A779F772667F1CF0055B34F /* Core */,
 				4A8B843E266563F200680E62 /* Flows */,
 				4A8B842A2665630400680E62 /* AppDelegate.swift */,
-				4A8B842C2665630400680E62 /* SceneDelegate.swift */,
 				4A8B84332665630500680E62 /* Assets.xcassets */,
 				4A8B84352665630500680E62 /* LaunchScreen.storyboard */,
 				4A8B84382665630500680E62 /* Info.plist */,
@@ -197,8 +194,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A8B843B2665630500680E62 /* Build configuration list for PBXNativeTarget "iosStudying" */;
 			buildPhases = (
-				4A779F852668F21A0055B34F /* R.swift */,
 				A32FCF990CA9D34E3630A1C2 /* [CP] Check Pods Manifest.lock */,
+				4A779F852668F21A0055B34F /* R.swift */,
 				4A8B84232665630400680E62 /* Sources */,
 				4A8B84242665630400680E62 /* Frameworks */,
 				4A8B84252665630400680E62 /* Resources */,
@@ -336,7 +333,6 @@
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
 				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,
-				4A8B842D2665630400680E62 /* SceneDelegate.swift in Sources */,
 				4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77NB29ZK26;
 				INFOPLIST_FILE = iosStudying/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -501,6 +498,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77NB29ZK26;
 				INFOPLIST_FILE = iosStudying/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
