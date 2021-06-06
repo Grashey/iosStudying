@@ -9,11 +9,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    let service = AuthService()
+    
     let borderWidth: CGFloat = 1
     let borderColor: UIColor = .lightGray
     
     lazy var loginTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = R.string.localizible.placeholderLogin()
+        textField.autocapitalizationType = .none
         textField.layer.borderWidth = borderWidth
         textField.layer.borderColor = borderColor.cgColor
         textField .translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +26,8 @@ class LoginViewController: UIViewController {
     
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = R.string.localizible.placeholderPassword()
+        textField.autocapitalizationType = .none
         textField.layer.borderWidth = borderWidth
         textField.layer.borderColor = borderColor.cgColor
         textField .translatesAutoresizingMaskIntoConstraints = false
@@ -67,8 +73,20 @@ class LoginViewController: UIViewController {
     }
     
     @objc func isButtonPressed() {
-        let vc = BooksViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        guard let login = loginTextField.text, let password = passwordTextField.text else { return }
+        
+        service.auth(login: login, password: password) { result in
+            switch result {
+            case let .success(token):
+                print(token)
+                DispatchQueue.main.async {
+                    let vc = BooksViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
     
     

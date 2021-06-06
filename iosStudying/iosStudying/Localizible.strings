@@ -10,3 +10,8 @@
 "LoginViewControllerTitle" = "Auth";
 "BooksViewControllerTitle" = "Books";
 "ChaptersViewControllerTitle" = "Chapters";
+
+"token" = "MsX8LtYHkW7lOaj4Df6T";
+
+"PlaceholderLogin" = "enter login";
+"PlaceholderPassword" = "enter password";
