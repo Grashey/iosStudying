@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class RegistryViewController: UIViewController {
 
     let registryView = RegistryView()
     
     let service = AuthService()
+    let router = AuthNavigationRouter()
     
     override func loadView() {
         self.view = registryView
@@ -19,6 +21,9 @@ class RegistryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        router.controller = self
+        
         self.title = R.string.localizible.loginViewControllerTitle()
         
         registryView.registryButton.addTarget(self, action: #selector(isButtonPressed), for: .touchUpInside)
@@ -40,13 +45,9 @@ class RegistryViewController: UIViewController {
         service.register(login: login, password: password) { result in
             switch result {
             case let .success(token):
-                print(token)
+                KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
                 DispatchQueue.main.async {
-                    let vc = UITabBarController()
-                    vc.viewControllers = [BooksViewController(), UIViewController()].map {
-                        UINavigationController(rootViewController: $0)
-                    }
-                    UIApplication.shared.keyWindow?.rootViewController = vc
+                    self.router.toMain()
                 }
             case let .failure(error):
                 print(error)

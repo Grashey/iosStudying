@@ -13,6 +13,7 @@ class BooksViewController: UIViewController {
     
     var books: BookResponse?
     let service = BookService()
+    let router = BooksNavigationRouter()
     
     override func loadView() {
         view = tableView
@@ -21,6 +22,7 @@ class BooksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = R.string.localizible.booksViewControllerTitle()
+        router.controller = self
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
@@ -30,9 +32,17 @@ class BooksViewController: UIViewController {
     }
     
     func getData() {
-        service.fetchBooks() {
-            self.books = $0
-            self.tableView.reloadData()
+        service.fetchBooks() { result in
+            switch result {
+            case .success(let books):
+                self.books = books
+                self.tableView.reloadData()
+            case .failure(let error):
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: { _ in
+                    self.router.toAuth()
+                }))
+            }
         }
     }
     
@@ -67,8 +77,7 @@ extension BooksViewController: UITableViewDataSource {
 extension BooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let id  = books?.docs[indexPath.row].id {
-            let vc = ChaptersViewController(bookID: id)
-            navigationController?.pushViewController(vc, animated: true)
+            router.toChapters(bookID: id)
         }
     }
 }

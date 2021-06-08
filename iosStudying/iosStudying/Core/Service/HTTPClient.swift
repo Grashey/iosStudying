@@ -9,14 +9,14 @@ import Foundation
 import Alamofire
 
 protocol HTTPClientProtocol {
-    func request<ResponseType: Decodable>(for route: Route, completion: @escaping (ResponseType) -> Void)
+    func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, Error>) -> Void)
 }
 
 class HTTPClient: HTTPClientProtocol {
     
     let decoder = JSONDecoder()
     
-    func request<ResponseType: Decodable>(for route: Route, completion: @escaping (ResponseType) -> Void) {
+    func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, Error>) -> Void) {
         let request = AF.request(
             route.makeURL(),
             method: route.method,
@@ -28,10 +28,10 @@ class HTTPClient: HTTPClientProtocol {
             do {
                 if let data = response.data {
                     let decoded = try self.decoder.decode(ResponseType.self, from: data)
-                    completion(decoded)
+                    completion(.success(decoded))
                 }
             } catch {
-                print(error)
+                completion(.failure(error))
             }
         }
     }

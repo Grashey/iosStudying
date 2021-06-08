@@ -39,9 +39,17 @@ class ChaptersViewController: UIViewController {
     }
     
     func getData() {
-        service.fetchChapters(bookID: bookID) {
-            self.chapters = $0
-            self.tableView.reloadData()
+        service.fetchChapters(bookID: bookID) { result in
+            switch result {
+            case .success(let chapters):
+                self.chapters = chapters
+                self.tableView.reloadData()
+            case .failure(let error):
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+            }
         }
     }
 }

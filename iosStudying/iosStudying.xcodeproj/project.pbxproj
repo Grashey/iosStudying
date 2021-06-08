@@ -14,6 +14,9 @@
 		4A6E016C266D1D7D001E5D73 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E016B266D1D7D001E5D73 /* LoginView.swift */; };
 		4A6E016F266D216F001E5D73 /* RegistryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E016E266D216F001E5D73 /* RegistryView.swift */; };
 		4A6E0172266D4F19001E5D73 /* + KeyChainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0171266D4F19001E5D73 /* + KeyChainSwift.swift */; };
+		4A6E0174266F7FFD001E5D73 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0173266F7FFD001E5D73 /* NavigationRouter.swift */; };
+		4A6E0176266F8227001E5D73 /* AuthNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0175266F8226001E5D73 /* AuthNavigationRouter.swift */; };
+		4A6E0178266F85EB001E5D73 /* BooksNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0177266F85EB001E5D73 /* BooksNavigationRouter.swift */; };
 		4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F792667F1F20055B34F /* HTTPClient.swift */; };
 		4A779F7C2667F32E0055B34F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7B2667F32E0055B34F /* Route.swift */; };
 		4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7D2667F6EE0055B34F /* BooksRoute.swift */; };
@@ -38,6 +41,9 @@
 		4A6E016B266D1D7D001E5D73 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4A6E016E266D216F001E5D73 /* RegistryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryView.swift; sourceTree = "<group>"; };
 		4A6E0171266D4F19001E5D73 /* + KeyChainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+ KeyChainSwift.swift"; sourceTree = "<group>"; };
+		4A6E0173266F7FFD001E5D73 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		4A6E0175266F8226001E5D73 /* AuthNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationRouter.swift; sourceTree = "<group>"; };
+		4A6E0177266F85EB001E5D73 /* BooksNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksNavigationRouter.swift; sourceTree = "<group>"; };
 		4A779F792667F1F20055B34F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4A779F7B2667F32E0055B34F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4A779F7D2667F6EE0055B34F /* BooksRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRoute.swift; sourceTree = "<group>"; };
@@ -81,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				4A6E0163266CDA03001E5D73 /* AuthService.swift */,
+				4A6E0175266F8226001E5D73 /* AuthNavigationRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 			children = (
 				4A779F792667F1F20055B34F /* HTTPClient.swift */,
 				4A779F7B2667F32E0055B34F /* Route.swift */,
+				4A6E0173266F7FFD001E5D73 /* NavigationRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 			children = (
 				4A81A2282666C560008D80E9 /* BookService.swift */,
 				4A779F7D2667F6EE0055B34F /* BooksRoute.swift */,
+				4A6E0177266F85EB001E5D73 /* BooksNavigationRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -366,16 +375,19 @@
 				4A6E016A266D1D37001E5D73 /* RegistryViewController.swift in Sources */,
 				4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */,
 				4A6E016F266D216F001E5D73 /* RegistryView.swift in Sources */,
+				4A6E0178266F85EB001E5D73 /* BooksNavigationRouter.swift in Sources */,
 				4A6E0172266D4F19001E5D73 /* + KeyChainSwift.swift in Sources */,
 				4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */,
 				4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */,
 				4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */,
 				4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */,
 				4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */,
+				4A6E0176266F8227001E5D73 /* AuthNavigationRouter.swift in Sources */,
 				4A6E016C266D1D7D001E5D73 /* LoginView.swift in Sources */,
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
+				4A6E0174266F7FFD001E5D73 /* NavigationRouter.swift in Sources */,
 				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,
 				4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */,
 			);
