@@ -17,6 +17,14 @@
 		4A6E0174266F7FFD001E5D73 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0173266F7FFD001E5D73 /* NavigationRouter.swift */; };
 		4A6E0176266F8227001E5D73 /* AuthNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0175266F8226001E5D73 /* AuthNavigationRouter.swift */; };
 		4A6E0178266F85EB001E5D73 /* BooksNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0177266F85EB001E5D73 /* BooksNavigationRouter.swift */; };
+		4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E017A266F8E73001E5D73 /* QuotesViewController.swift */; };
+		4A6E017D266FA154001E5D73 /* QuotesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E017C266FA154001E5D73 /* QuotesPresenter.swift */; };
+		4A6E0180266FA1BA001E5D73 /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E017F266FA1BA001E5D73 /* QuoteService.swift */; };
+		4A6E0183266FA269001E5D73 /* QuoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0182266FA269001E5D73 /* QuoteResponse.swift */; };
+		4A6E0185266FA380001E5D73 /* QuoteRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0184266FA380001E5D73 /* QuoteRoute.swift */; };
+		4A6E0187266FA47D001E5D73 /* PaginationParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0186266FA47D001E5D73 /* PaginationParameters.swift */; };
+		4A6E0189266FA5F7001E5D73 /* + Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0188266FA5F7001E5D73 /* + Encodable.swift */; };
+		4A6E018C266FDD1A001E5D73 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E018B266FDD1A001E5D73 /* TabBarController.swift */; };
 		4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F792667F1F20055B34F /* HTTPClient.swift */; };
 		4A779F7C2667F32E0055B34F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7B2667F32E0055B34F /* Route.swift */; };
 		4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7D2667F6EE0055B34F /* BooksRoute.swift */; };
@@ -44,6 +52,14 @@
 		4A6E0173266F7FFD001E5D73 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		4A6E0175266F8226001E5D73 /* AuthNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationRouter.swift; sourceTree = "<group>"; };
 		4A6E0177266F85EB001E5D73 /* BooksNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksNavigationRouter.swift; sourceTree = "<group>"; };
+		4A6E017A266F8E73001E5D73 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
+		4A6E017C266FA154001E5D73 /* QuotesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenter.swift; sourceTree = "<group>"; };
+		4A6E017F266FA1BA001E5D73 /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
+		4A6E0182266FA269001E5D73 /* QuoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteResponse.swift; sourceTree = "<group>"; };
+		4A6E0184266FA380001E5D73 /* QuoteRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRoute.swift; sourceTree = "<group>"; };
+		4A6E0186266FA47D001E5D73 /* PaginationParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationParameters.swift; sourceTree = "<group>"; };
+		4A6E0188266FA5F7001E5D73 /* + Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+ Encodable.swift"; sourceTree = "<group>"; };
+		4A6E018B266FDD1A001E5D73 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		4A779F792667F1F20055B34F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4A779F7B2667F32E0055B34F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4A779F7D2667F6EE0055B34F /* BooksRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRoute.swift; sourceTree = "<group>"; };
@@ -105,8 +121,46 @@
 			isa = PBXGroup;
 			children = (
 				4A6E0171266D4F19001E5D73 /* + KeyChainSwift.swift */,
+				4A6E0188266FA5F7001E5D73 /* + Encodable.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4A6E0179266F8E3C001E5D73 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E017E266FA19A001E5D73 /* Service */,
+				4A6E0181266FA24A001E5D73 /* Model */,
+				4A6E017A266F8E73001E5D73 /* QuotesViewController.swift */,
+				4A6E017C266FA154001E5D73 /* QuotesPresenter.swift */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
+		4A6E017E266FA19A001E5D73 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E017F266FA1BA001E5D73 /* QuoteService.swift */,
+				4A6E0184266FA380001E5D73 /* QuoteRoute.swift */,
+				4A6E0186266FA47D001E5D73 /* PaginationParameters.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4A6E0181266FA24A001E5D73 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E0182266FA269001E5D73 /* QuoteResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A6E018A266FDCF4001E5D73 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E018B266FDD1A001E5D73 /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		4A779F772667F1CF0055B34F /* Core */ = {
@@ -199,9 +253,11 @@
 		4A8B843E266563F200680E62 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E018A266FDCF4001E5D73 /* TabBar */,
 				4A8B843F266563FB00680E62 /* Auth */,
 				4A8B844226656B0E00680E62 /* Books */,
 				4A779F7F266809AE0055B34F /* Chapters */,
+				4A6E0179266F8E3C001E5D73 /* Quotes */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -374,11 +430,13 @@
 				4A8B842F2665630400680E62 /* LoginViewController.swift in Sources */,
 				4A6E016A266D1D37001E5D73 /* RegistryViewController.swift in Sources */,
 				4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */,
+				4A6E018C266FDD1A001E5D73 /* TabBarController.swift in Sources */,
 				4A6E016F266D216F001E5D73 /* RegistryView.swift in Sources */,
 				4A6E0178266F85EB001E5D73 /* BooksNavigationRouter.swift in Sources */,
 				4A6E0172266D4F19001E5D73 /* + KeyChainSwift.swift in Sources */,
 				4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */,
 				4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */,
+				4A6E0189266FA5F7001E5D73 /* + Encodable.swift in Sources */,
 				4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */,
 				4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */,
 				4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */,
@@ -387,8 +445,14 @@
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
+				4A6E0185266FA380001E5D73 /* QuoteRoute.swift in Sources */,
 				4A6E0174266F7FFD001E5D73 /* NavigationRouter.swift in Sources */,
+				4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */,
+				4A6E0183266FA269001E5D73 /* QuoteResponse.swift in Sources */,
+				4A6E017D266FA154001E5D73 /* QuotesPresenter.swift in Sources */,
 				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,
+				4A6E0187266FA47D001E5D73 /* PaginationParameters.swift in Sources */,
+				4A6E0180266FA1BA001E5D73 /* QuoteService.swift in Sources */,
 				4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

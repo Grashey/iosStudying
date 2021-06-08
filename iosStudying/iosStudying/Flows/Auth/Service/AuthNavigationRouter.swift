@@ -15,10 +15,7 @@ class AuthNavigationRouter: NavigationRouter {
     }
     
     func toMain() {
-        let controller = UITabBarController()
-        controller.viewControllers = [BooksViewController(), UIViewController()].map {
-            UINavigationController(rootViewController: $0)
-        }
+        let controller = TabBarController()
         setAsRoot(controller)
     }
 }

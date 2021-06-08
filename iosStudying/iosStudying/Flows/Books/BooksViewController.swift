@@ -9,7 +9,13 @@ import UIKit
 
 class BooksViewController: UIViewController {
 
-    let tableView = UITableView()
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
+        return tableView
+    }()
     
     var books: BookResponse?
     let service = BookService()
@@ -21,12 +27,8 @@ class BooksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = R.string.localizible.booksViewControllerTitle()
-        router.controller = self
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         
+        router.controller = self
         configureExitButton()
         getData()
     }
@@ -56,8 +58,7 @@ class BooksViewController: UIViewController {
     
     @objc private func isLogoutButtonPressed() {
         UserDefaults.standard.set(false, forKey: R.string.localizible.isAuthorized())
-        let vc = UINavigationController(rootViewController: LoginViewController())
-        UIApplication.shared.keyWindow?.rootViewController = vc
+        router.toAuth()
     }
 }
 
