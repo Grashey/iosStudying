@@ -25,6 +25,7 @@ class BooksViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         
+        configureExitButton()
         getData()
     }
     
@@ -33,6 +34,20 @@ class BooksViewController: UIViewController {
             self.books = $0
             self.tableView.reloadData()
         }
+    }
+    
+    func configureExitButton() {
+        let barButton = UIBarButtonItem(title: R.string.localizible.logoutButtonTitle(),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(isLogoutButtonPressed))
+        self.navigationItem.leftBarButtonItem = barButton
+    }
+    
+    @objc private func isLogoutButtonPressed() {
+        UserDefaults.standard.set(false, forKey: R.string.localizible.isAuthorized())
+        let vc = UINavigationController(rootViewController: LoginViewController())
+        UIApplication.shared.keyWindow?.rootViewController = vc
     }
 }
 

@@ -6,7 +6,15 @@
   
 */
 
-"LoginButtonTitle" = "Login";
-"LoginViewControllerTitle" = "Auth";
-"BooksViewControllerTitle" = "Books";
-"ChaptersViewControllerTitle" = "Chapters";
+"loginButtonTitle" = "Login";
+"logoutButtonTitle" = "Logout";
+"registryButtonTitle" = "Register";
+"loginViewControllerTitle" = "Auth";
+"booksViewControllerTitle" = "Books";
+"chaptersViewControllerTitle" = "Chapters";
+
+"isAuthorized" = "isAuthorized";
+"token" = "MsX8LtYHkW7lOaj4Df6T";
+
+"placeholderLogin" = "enter login";
+"placeholderPassword" = "enter password";
