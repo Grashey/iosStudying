@@ -77,8 +77,8 @@ extension BooksViewController: UITableViewDataSource {
 
 extension BooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let id  = books?.docs[indexPath.row].id, let bookTitle = books?.docs[indexPath.row].name {
-            router.toChapters(bookID: id, bookTitle: bookTitle)
+        if let book  = books?.docs[indexPath.row] {
+            router.toChapters(bookID: book.id, bookTitle: book.name)
         }
     }
 }
