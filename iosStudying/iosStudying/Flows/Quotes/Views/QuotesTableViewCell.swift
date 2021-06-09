@@ -34,7 +34,7 @@ class QuotesTableViewCell: UITableViewCell {
     }
     
     func configure(with text: String) {
-        quoteLabel.text = text
+        quoteLabel.text = text.trimmingCharacters(in: .whitespaces)
         quoteLabel.bounds.size.height = heightForView(text: text)
     }
     

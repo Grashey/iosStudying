@@ -15,6 +15,7 @@ class QuotesViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.refreshControl = presenter?.refreshControl
         tableView.register(QuotesTableViewCell.self, forCellReuseIdentifier: QuotesTableViewCell.description())
         return tableView
     }()
