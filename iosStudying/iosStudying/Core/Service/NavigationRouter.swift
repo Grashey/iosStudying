@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NavigationRouter: NSObject {
+class NavigationRouter {
     
     var controller: UIViewController? = nil
     
