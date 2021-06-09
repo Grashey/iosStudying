@@ -47,6 +47,7 @@ class QuotesPresenter {
     
     @objc func refreshQuotes(_ sender: Any) {
         offset = .zero
+        quotes.removeAll()
         loadNext()
         self.refreshControl.endRefreshing()
     }
