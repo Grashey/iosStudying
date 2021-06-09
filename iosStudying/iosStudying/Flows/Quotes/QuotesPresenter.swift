@@ -38,5 +38,5 @@ class QuotesPresenter {
         } else {
             return
         }
-    }  
+    }
 }

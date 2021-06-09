@@ -15,7 +15,7 @@ class QuoteService {
         self.httpClient = httpClient
     }
     
-    func fetchQuotes(parameters: PaginationParameters, completion: @escaping (Result<QuoteRsponse, Error>) -> Void) {
+    func fetchQuotes(parameters: PaginationParameters, completion: @escaping (Result<QuoteResponse, Error>) -> Void) {
         httpClient.request(for: QuoteRoute.quotes(parameters: parameters), completion: completion)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - QuoteRsponse
-struct QuoteRsponse: Codable {
+struct QuoteResponse: Codable {
     let docs: [QuoteDoc]
     let total, limit, offset: Int
     let page: Int?

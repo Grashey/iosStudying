@@ -14,8 +14,9 @@ class BooksNavigationRouter: NavigationRouter {
         setAsRoot(controller)
     }
     
-    func toChapters(bookID: String) {
+    func toChapters(bookID: String, bookTitle: String) {
         let controller = ChaptersViewController(bookID: bookID)
+        controller.title = bookTitle
         show(controller)
     }
 }
