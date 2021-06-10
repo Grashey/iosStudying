@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     
     let service = AuthService()
+    let router = AuthNavigationRouter()
     
     override func loadView() {
         self.view = loginView
@@ -20,6 +21,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        router.controller = self
+        
         self.title = R.string.localizible.loginViewControllerTitle()
         
         loginView.loginButton.addTarget(self, action: #selector(isLoginButtonPressed), for: .touchUpInside)
@@ -44,11 +48,7 @@ class LoginViewController: UIViewController {
             case let .success(token):
                 KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
                 DispatchQueue.main.async {
-                    let vc = UITabBarController()
-                    vc.viewControllers = [BooksViewController(), UIViewController()].map {
-                        UINavigationController(rootViewController: $0)
-                    }
-                    UIApplication.shared.keyWindow?.rootViewController = vc
+                    self.router.toMain()
                 }
             case let .failure(error):
                 DispatchQueue.main.async {
@@ -60,8 +60,7 @@ class LoginViewController: UIViewController {
     
     @objc func isRegistryButtonPressed() {
         hideKeyboard()
-        let vc = RegistryViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        router.toRegistry()
     }
     
     @objc private func hideKeyboard(){

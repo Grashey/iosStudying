@@ -9,10 +9,17 @@ import UIKit
 
 class BooksViewController: UIViewController {
 
-    let tableView = UITableView()
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
+        return tableView
+    }()
     
     var books: BookResponse?
     let service = BookService()
+    let router = BooksNavigationRouter()
     
     override func loadView() {
         view = tableView
@@ -20,19 +27,21 @@ class BooksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = R.string.localizible.booksViewControllerTitle()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         
+        router.controller = self
         configureExitButton()
         getData()
     }
     
     func getData() {
-        service.fetchBooks() {
-            self.books = $0
-            self.tableView.reloadData()
+        service.fetchBooks() { result in
+            switch result {
+            case .success(let books):
+                self.books = books
+                self.tableView.reloadData()
+            case .failure(let error):
+                self.router.presentAlert(error: error)
+            }
         }
     }
     
@@ -46,8 +55,7 @@ class BooksViewController: UIViewController {
     
     @objc private func isLogoutButtonPressed() {
         UserDefaults.standard.set(false, forKey: R.string.localizible.isAuthorized())
-        let vc = UINavigationController(rootViewController: LoginViewController())
-        UIApplication.shared.keyWindow?.rootViewController = vc
+        router.toAuth()
     }
 }
 
@@ -66,9 +74,8 @@ extension BooksViewController: UITableViewDataSource {
 
 extension BooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let id  = books?.docs[indexPath.row].id {
-            let vc = ChaptersViewController(bookID: id)
-            navigationController?.pushViewController(vc, animated: true)
+        if let book  = books?.docs[indexPath.row] {
+            router.toChapters(bookID: book.id, bookTitle: book.name)
         }
     }
 }

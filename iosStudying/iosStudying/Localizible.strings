@@ -11,7 +11,11 @@
 "registryButtonTitle" = "Register";
 "loginViewControllerTitle" = "Auth";
 "booksViewControllerTitle" = "Books";
+"quotesViewControllerTitle" = "Quotes";
 "chaptersViewControllerTitle" = "Chapters";
+
+"alertErrorTitle" = "Error";
+"alertActionOkTitle" = "ok";
 
 "isAuthorized" = "isAuthorized";
 "token" = "MsX8LtYHkW7lOaj4Df6T";

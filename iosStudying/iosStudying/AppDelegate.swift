@@ -15,17 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let isAuthorized = UserDefaults.standard.bool(forKey: R.string.localizible.isAuthorized())
-        var controller = UIViewController()
-
-        if isAuthorized {
-            let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [BooksViewController(), UIViewController()].map {
-                UINavigationController(rootViewController: $0)
+        
+        let controller: UIViewController = {
+            if isAuthorized {
+                return TabBarController()
+            } else {
+                return UINavigationController(rootViewController: LoginViewController())
             }
-            controller = tabBarController
-        } else {
-            controller = UINavigationController(rootViewController: LoginViewController())
-        }
+        }()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = controller

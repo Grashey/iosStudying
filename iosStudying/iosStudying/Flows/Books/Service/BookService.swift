@@ -15,11 +15,11 @@ class BookService {
         self.httpClient = httpClient
     }
     
-    func fetchBooks(completion: @escaping (BookResponse) -> Void) {
+    func fetchBooks(completion: @escaping (Result<BookResponse, Error>) -> Void) {
         httpClient.request(for: BooksRoute.books, completion: completion)
     }
     
-    func fetchChapters(bookID: String, completion: @escaping (ChapterResponse) -> Void) {
+    func fetchChapters(bookID: String, completion: @escaping (Result<ChapterResponse, Error>) -> Void) {
         httpClient.request(for: BooksRoute.chapter(id: bookID), completion: completion)
     }
 }
