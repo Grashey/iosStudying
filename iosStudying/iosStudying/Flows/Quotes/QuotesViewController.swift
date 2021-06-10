@@ -20,6 +20,7 @@ class QuotesViewController: UIViewController {
         tableView.register(QuotesTableViewCell.self, forCellReuseIdentifier: QuotesTableViewCell.description())
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -61,7 +62,6 @@ extension QuotesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
         print(indexPath)
     }
 }

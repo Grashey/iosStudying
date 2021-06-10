@@ -39,15 +39,4 @@ class QuotesPresenter {
             return
         }
     }
-<<<<<<< Updated upstream
-    
-    @objc func refreshQuotes(_ sender: Any) {
-        offset = .zero
-        quotes.removeAll()
-        viewController?.reloadData()
-        loadNext()
-        self.refreshControl.endRefreshing()
-    }
-=======
->>>>>>> Stashed changes
 }
