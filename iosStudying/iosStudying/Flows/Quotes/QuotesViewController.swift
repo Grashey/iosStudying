@@ -15,8 +15,11 @@ class QuotesViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.refreshControl = presenter?.refreshControl
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshQuotes), for: .valueChanged)
         tableView.register(QuotesTableViewCell.self, forCellReuseIdentifier: QuotesTableViewCell.description())
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44
         return tableView
     }()
     
@@ -31,6 +34,14 @@ class QuotesViewController: UIViewController {
     
     func reloadData() {
         tableView.reloadData()
+    }
+    
+    @objc func refreshQuotes(_ sender: Any) {
+        presenter?.offset = .zero
+        presenter?.quotes.removeAll()
+        reloadData()
+        presenter?.loadNext()
+        tableView.refreshControl?.endRefreshing()
     }
 }
 
@@ -50,7 +61,8 @@ extension QuotesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
+        print(indexPath)
     }
 }
 

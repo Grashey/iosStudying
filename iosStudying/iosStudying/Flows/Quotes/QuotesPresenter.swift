@@ -18,11 +18,6 @@ class QuotesPresenter {
     var quotes: [QuoteDoc] = []
     weak var viewController: QuotesViewController?
     var isLoading = false
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshQuotes(_:)), for: .valueChanged)
-        return refreshControl
-    }()
     
     func loadNext() {
         if !isLoading {
@@ -44,6 +39,7 @@ class QuotesPresenter {
             return
         }
     }
+<<<<<<< Updated upstream
     
     @objc func refreshQuotes(_ sender: Any) {
         offset = .zero
@@ -52,4 +48,6 @@ class QuotesPresenter {
         loadNext()
         self.refreshControl.endRefreshing()
     }
+=======
+>>>>>>> Stashed changes
 }
