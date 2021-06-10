@@ -15,6 +15,7 @@ class ChaptersViewController: UIViewController {
     
     var chapters: ChapterResponse?
     let service = BookService()
+    let router = BooksNavigationRouter()
     
     override func loadView() {
         view = tableView
@@ -31,6 +32,7 @@ class ChaptersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        router.controller = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         
@@ -44,10 +46,7 @@ class ChaptersViewController: UIViewController {
                 self.chapters = chapters
                 self.tableView.reloadData()
             case .failure(let error):
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: { _ in
-                    self.navigationController?.popViewController(animated: true)
-                }))
+                self.router.presentAlert(error: error)
             }
         }
     }

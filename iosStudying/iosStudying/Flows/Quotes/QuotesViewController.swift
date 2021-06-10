@@ -7,9 +7,14 @@
 
 import UIKit
 
+enum Constants: CGFloat {
+    case tableViewRowHeight = 44
+}
+
 class QuotesViewController: UIViewController {
     
     var presenter: QuotesPresenter?
+    let router = BooksNavigationRouter()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -19,8 +24,9 @@ class QuotesViewController: UIViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(refreshQuotes), for: .valueChanged)
         tableView.register(QuotesTableViewCell.self, forCellReuseIdentifier: QuotesTableViewCell.description())
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44
-        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = Constants.tableViewRowHeight.rawValue
+        tableView.separatorStyle = .singleLine
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10);
         return tableView
     }()
     
@@ -30,6 +36,7 @@ class QuotesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        router.controller = self
         presenter?.loadNext()
     }
     
@@ -62,6 +69,7 @@ extension QuotesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         print(indexPath)
     }
 }

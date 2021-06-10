@@ -40,10 +40,7 @@ class BooksViewController: UIViewController {
                 self.books = books
                 self.tableView.reloadData()
             case .failure(let error):
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: { _ in
-                    self.router.toAuth()
-                }))
+                self.router.presentAlert(error: error)
             }
         }
     }

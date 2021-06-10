@@ -30,8 +30,7 @@ class QuotesPresenter {
                     self.quotes.append(contentsOf: data.docs)
                     self.viewController?.reloadData()
                 case .failure(let error):
-                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "ok", style: .cancel))
+                    self.viewController?.router.presentAlert(error: error)
                 }
                 self.isLoading = false
             }

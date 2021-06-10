@@ -18,4 +18,8 @@ class NavigationRouter {
     func setAsRoot(_ controller: UIViewController) {
         UIApplication.shared.keyWindow?.rootViewController = controller
     }
+    
+    func present(_ controller: UIViewController) {
+        self.controller?.present(controller, animated: true, completion: nil)
+    }
 }
