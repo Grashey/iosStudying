@@ -12,11 +12,11 @@ enum AuthError: String, Error {
     case userIsEmpty = "Enter login"
     case wrongPassword = "Wrong password"
     case passwordIsEmpty = "Enter password"
-    
+
 }
 
 class AuthService {
-    
+
     let defaults = UserDefaults.standard
 
     func auth(login: String, password: String, completion: @escaping (Result<String, AuthError>) -> Void) {
@@ -25,7 +25,7 @@ class AuthService {
 
             guard !login.isEmpty else { return completion(.failure(.userIsEmpty)) }
             guard let passwordValue = self.defaults.value(forKey: login) as? String else { return completion(.failure(.noSuchUser)) }
-    
+
             if password == passwordValue {
                 self.defaults.set(true, forKey: R.string.localizible.isAuthorized())
                 completion(.success(R.string.localizible.token()))
@@ -36,8 +36,8 @@ class AuthService {
             }
         }
     }
-    
-    //нет проверок на наличие значения полей и уровней сложности пароля, пароль обновляется для существующего юзера
+
+    // нет проверок на наличие значения полей и уровней сложности пароля, пароль обновляется для существующего юзера
     func register(login: String, password: String, completion: @escaping (Result<String, AuthError>) -> Void) {
         DispatchQueue.global().async {
             sleep(2)

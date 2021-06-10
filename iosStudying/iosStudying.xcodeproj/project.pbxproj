@@ -310,6 +310,7 @@
 			buildConfigurationList = 4A8B843B2665630500680E62 /* Build configuration list for PBXNativeTarget "iosStudying" */;
 			buildPhases = (
 				A32FCF990CA9D34E3630A1C2 /* [CP] Check Pods Manifest.lock */,
+				4A33445B2672B52D00250424 /* SwiftLint */,
 				4A779F852668F21A0055B34F /* R.swift */,
 				4A8B84232665630400680E62 /* Sources */,
 				4A8B84242665630400680E62 /* Frameworks */,
@@ -371,6 +372,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A33445B2672B52D00250424 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		4A779F852668F21A0055B34F /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

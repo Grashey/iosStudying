@@ -12,15 +12,15 @@ enum QuoteRoute {
 }
 
 extension QuoteRoute: Route {
-    
+
     var url: String {
         switch self {
         case .quotes:
             return "/quote"
         }
     }
-    
-    var parameters: [String : Any] {
+
+    var parameters: [String: Any] {
         switch self {
         case let .quotes(parameters):
             return parameters.toDict() ?? [:]

@@ -8,17 +8,17 @@
 import UIKit
 
 class QuotesPresenter {
-    
+
     enum Constants {
         static let resultsLimit = 100
     }
-    
+
     var service: QuoteService? = QuoteService()
     var offset = Int.zero
     var quotes: [QuoteDoc] = []
     weak var viewController: QuotesViewController?
     var isLoading = false
-    
+
     func loadNext() {
         if !isLoading {
             isLoading = true

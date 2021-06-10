@@ -17,12 +17,12 @@ struct QuoteResponse: Codable {
 
 // MARK: - Doc
 struct QuoteDoc: Codable {
-    let id, dialog: String
+    let identifier, dialog: String
     let movie: String
     let character: String
 
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
+        case identifier = "_id"
         case dialog, movie, character
     }
 }

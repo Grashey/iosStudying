@@ -8,7 +8,7 @@
 import UIKit
 
 class RegistryView: UIView {
-    
+
     let borderWidth: CGFloat = 1
     let borderColor: UIColor = .lightGray
 
@@ -21,7 +21,7 @@ class RegistryView: UIView {
         textField .translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
+
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = R.string.localizible.placeholderPassword()
@@ -31,7 +31,7 @@ class RegistryView: UIView {
         textField .translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
+
     lazy var registryButton: UIButton = {
         let button = UIButton()
         button.setTitle(R.string.localizible.registryButtonTitle(), for: .normal)
@@ -39,37 +39,37 @@ class RegistryView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureContent()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
     private func configureContent() {
         self.backgroundColor = .white
         self.addSubview(loginTextField)
         self.addSubview(passwordTextField)
         self.addSubview(registryButton)
-        
+
         NSLayoutConstraint.activate([
             loginTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 100),
             loginTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -100),
             loginTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             loginTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -120),
-            
+
             passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 100),
             passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -100),
             passwordTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             passwordTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -60),
-            
+
             registryButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             registryButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])

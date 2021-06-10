@@ -9,7 +9,7 @@ import Foundation
 import KeychainSwift
 
 extension KeychainSwift {
-    
+
     enum Keys: String {
         case token
     }

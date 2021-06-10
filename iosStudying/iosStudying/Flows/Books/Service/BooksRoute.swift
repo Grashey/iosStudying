@@ -9,17 +9,17 @@ import Foundation
 
 enum BooksRoute {
     case books
-    case chapter(id: String)
+    case chapter(identifier: String)
 }
 
 extension BooksRoute: Route {
-    
+
     var url: String {
         switch self {
         case .books:
             return "/book"
-        case let .chapter(id):
-            return "/book/\(id)/chapter"
+        case let .chapter(identifier):
+            return "/book/\(identifier)/chapter"
         }
     }
 }

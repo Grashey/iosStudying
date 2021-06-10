@@ -15,20 +15,20 @@ class TabBarController: UITabBarController {
     }
 
     private func configureContent() {
-        
+
         let booksVC: BooksViewController = {
-            let vc = BooksViewController()
-            vc.title = R.string.localizible.booksViewControllerTitle()
-            return vc
+            let controller = BooksViewController()
+            controller.title = R.string.localizible.booksViewControllerTitle()
+            return controller
         }()
-        
+
         let quoteVC: QuotesViewController = {
-            let vc = QuotesViewController()
+            let controller = QuotesViewController()
             let quotePresenter = QuotesPresenter()
-            vc.presenter = quotePresenter
-            quotePresenter.viewController = vc
-            vc.title = R.string.localizible.quotesViewControllerTitle()
-            return vc
+            controller.presenter = quotePresenter
+            quotePresenter.viewController = controller
+            controller.title = R.string.localizible.quotesViewControllerTitle()
+            return controller
         }()
 
         self.viewControllers = [booksVC, quoteVC].map {
