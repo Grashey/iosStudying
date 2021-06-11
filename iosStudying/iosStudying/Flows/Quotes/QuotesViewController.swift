@@ -15,6 +15,7 @@ class QuotesViewController: UIViewController {
 
     var presenter: QuotesPresenter?
     let router = BooksNavigationRouter()
+    let dataLoader = DataLoader<String>()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -64,13 +65,29 @@ extension QuotesViewController: UITableViewDataSource {
         }
         if let quote = presenter?.quotes[indexPath.row] {
             cell.configure(with: quote.dialog)
-        }
+            if dataLoader.load(key: quote.identifier) != nil {
+                cell.favoriteView.isHidden = false
+            }
+    }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print(indexPath)
+        if let cell = tableView.cellForRow(at: indexPath) as? QuotesTableViewCell {
+            cell.favoriteView.isHidden.toggle()
+        }
+        if let quote = presenter?.quotes[indexPath.row] {
+            operateFavorite(identifier: quote.identifier)
+        }
+    }
+
+    func operateFavorite(identifier: String) {
+        if dataLoader.load(key: identifier) != nil {
+            dataLoader.remove(key: identifier)
+        } else {
+            dataLoader.save(value: identifier, key: identifier)
+        }
     }
 }
 
