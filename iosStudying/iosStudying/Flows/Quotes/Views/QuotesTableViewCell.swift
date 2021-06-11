@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class QuotesTableViewCell: UITableViewCell {
 
@@ -34,11 +35,6 @@ class QuotesTableViewCell: UITableViewCell {
     private func configureContent() {
         self.contentView.addSubview(quoteLabel)
 
-        NSLayoutConstraint.activate([
-            quoteLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-            quoteLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
-            quoteLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
-            quoteLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor)
-        ])
+        quoteLabel.snp.makeConstraints { $0.edges.equalTo(contentView.layoutMarginsGuide) }
     }
 }
