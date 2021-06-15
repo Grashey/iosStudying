@@ -7,15 +7,16 @@
 
 import UIKit
 
-enum Constants: CGFloat {
-    case tableViewRowHeight = 44
+enum Constants {
+    static let tableViewRowHeight: CGFloat = 44
+    static let edgeInset: CGFloat = 10
+    static let indexInset = 10
 }
 
 class QuotesViewController: UIViewController {
 
     var presenter: QuotesPresenter?
     let router = BooksNavigationRouter()
-    let dataLoader = DataLoader<String>()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -25,9 +26,9 @@ class QuotesViewController: UIViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(refreshQuotes), for: .valueChanged)
         tableView.register(QuotesTableViewCell.self, forCellReuseIdentifier: QuotesTableViewCell.description())
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = Constants.tableViewRowHeight.rawValue
+        tableView.estimatedRowHeight = Constants.tableViewRowHeight
         tableView.separatorStyle = .singleLine
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        tableView.separatorInset = UIEdgeInsets(top: .zero, left: Constants.edgeInset, bottom: .zero, right: Constants.edgeInset)
         return tableView
     }()
 
@@ -61,32 +62,17 @@ extension QuotesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: QuotesTableViewCell.description(), for: indexPath) as? QuotesTableViewCell else { return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: QuotesTableViewCell.description(), for: indexPath) as? QuotesTableViewCell else { return UITableViewCell() }
+        if let model = presenter?.makeQuotesViewCellModelForIndex(index: indexPath.row) {
+            cell.configure(with: model)
         }
-        if let quote = presenter?.quotes[indexPath.row] {
-            cell.configure(with: quote.dialog)
-            if dataLoader.load(key: quote.identifier) != nil {
-                cell.favoriteView.isHidden = false
-            }
-    }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if let cell = tableView.cellForRow(at: indexPath) as? QuotesTableViewCell {
-            cell.favoriteView.isHidden.toggle()
-        }
         if let quote = presenter?.quotes[indexPath.row] {
-            operateFavorite(identifier: quote.identifier)
-        }
-    }
-
-    func operateFavorite(identifier: String) {
-        if dataLoader.load(key: identifier) != nil {
-            dataLoader.remove(key: identifier)
-        } else {
-            dataLoader.save(value: identifier, key: identifier)
+            presenter?.operateFavorite(identifier: quote.identifier)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
 }
@@ -95,7 +81,7 @@ extension QuotesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let count = presenter?.quotes.count ?? .zero
-        if count - 10 < indexPath.row {
+        if count - Constants.indexInset < indexPath.row {
             presenter?.loadNext()
         }
     }

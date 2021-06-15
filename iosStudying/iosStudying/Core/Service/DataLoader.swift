@@ -21,7 +21,7 @@ class DataLoader<T: Codable> {
     func save(value: T, key: String) {
         let encoder = JSONEncoder()
         let data = try? encoder.encode(value)
-        defaults.setValue(data, forKey: key)
+        defaults.set(data, forKey: key)
     }
 
     func remove(key: String) {

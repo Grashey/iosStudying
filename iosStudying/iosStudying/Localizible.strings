@@ -22,3 +22,6 @@
 
 "placeholderLogin" = "enter login";
 "placeholderPassword" = "enter password";
+
+"quotesViewCellMovieLabel" = "Movie:";
+"quotesViewCellQuoteLabel" = "Quote:";

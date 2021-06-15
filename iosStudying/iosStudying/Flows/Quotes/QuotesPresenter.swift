@@ -18,6 +18,7 @@ class QuotesPresenter {
     var quotes: [QuoteDoc] = []
     weak var viewController: QuotesViewController?
     var isLoading = false
+    let dataLoader = DataLoader<String>()
 
     func loadNext() {
         if !isLoading {
@@ -37,5 +38,25 @@ class QuotesPresenter {
         } else {
             return
         }
+    }
+
+    func operateFavorite(identifier: String) {
+        if dataLoader.load(key: identifier) != nil {
+            dataLoader.remove(key: identifier)
+        } else {
+            dataLoader.save(value: identifier, key: identifier)
+        }
+    }
+
+    func makeQuotesViewCellModelForIndex(index: Int) -> QuotesCellViewModel {
+        let model = quotes[index]
+        let isFavorite: Bool = {
+            if dataLoader.load(key: model.identifier) != nil {
+                return true
+            } else {
+                return false
+            }
+        }()
+        return .init(text: model.dialog, isFavorite: isFavorite, movieName: model.movie)
     }
 }

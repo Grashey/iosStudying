@@ -8,9 +8,28 @@
 import UIKit
 import SnapKit
 
+struct QuotesCellViewModel {
+    let text: String
+    let isFavorite: Bool
+    let movieName: String
+}
+
 class QuotesTableViewCell: UITableViewCell {
 
-    var quoteLabel: UILabel = {
+    enum Constants {
+        static let edgeInset: CGFloat = 10
+        static let indicatorSize: CGFloat = 20
+        static let indicatorCornerRadius = indicatorSize/2
+    }
+
+    lazy var quoteLabel: UILabel = {
+       let label = UILabel()
+        label.text = R.string.localizible.quotesViewCellQuoteLabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
+
+   lazy var quoteTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
@@ -19,17 +38,30 @@ class QuotesTableViewCell: UITableViewCell {
         return label
     }()
 
-    var favoriteView: UIView = {
+    lazy var movieLabel: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizible.quotesViewCellMovieLabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
+
+    lazy var movieTitleLabel: UILabel = {
+       let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
+
+    lazy var favoriteView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = Constants.indicatorCornerRadius
         view.backgroundColor = .systemYellow
-        view.isHidden = true
         return view
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureContent()
+        addSubviews()
+        addConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -40,26 +72,49 @@ class QuotesTableViewCell: UITableViewCell {
         favoriteView.isHidden = true
     }
 
-    func configure(with text: String) {
-        quoteLabel.text = text.trimmingCharacters(in: .whitespaces)
+    func configure(with model: QuotesCellViewModel) {
+        quoteTitleLabel.text = model.text.trimmingCharacters(in: .whitespaces)
+        favoriteView.isHidden = !model.isFavorite
+        movieTitleLabel.text = model.movieName
     }
 
-    private func configureContent() {
+    private func addSubviews() {
         contentView.addSubview(quoteLabel)
+        contentView.addSubview(quoteTitleLabel)
         contentView.addSubview(favoriteView)
+        contentView.addSubview(movieLabel)
+        contentView.addSubview(movieTitleLabel)
+    }
 
-        favoriteView.snp.makeConstraints { make in
-            make.centerY.equalTo(contentView.layoutMarginsGuide)
-            make.trailing.equalTo(contentView.layoutMarginsGuide)
-            make.height.equalTo(contentView.bounds.height/2)
-            make.width.equalTo(contentView.bounds.height/2)
+    private func addConstraints() {
+        favoriteView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(Constants.edgeInset)
+            $0.size.equalTo(Constants.indicatorSize)
         }
 
-        quoteLabel.snp.makeConstraints { make in
-            make.left.equalTo(contentView.layoutMarginsGuide)
-            make.top.equalTo(contentView.layoutMarginsGuide)
-            make.bottom.equalTo(contentView.layoutMarginsGuide)
-            make.right.equalTo(contentView.layoutMarginsGuide).offset(-contentView.bounds.height/2)
+        movieLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(Constants.edgeInset)
         }
+
+        movieTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(Constants.edgeInset)
+            $0.leading.equalTo(movieLabel.snp.trailing).offset(Constants.edgeInset)
+        }
+
+        quoteLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(Constants.edgeInset)
+            $0.top.equalTo(movieLabel.snp.bottom).offset(Constants.edgeInset)
+        }
+
+        quoteTitleLabel.snp.makeConstraints {
+            $0.leading.equalTo(quoteLabel.snp.trailing).offset(Constants.edgeInset)
+            $0.top.equalTo(movieLabel.snp.bottom).offset(Constants.edgeInset)
+            $0.bottom.equalToSuperview().inset(Constants.edgeInset)
+            $0.trailing.equalToSuperview().inset(Constants.edgeInset*2 + Constants.indicatorSize)
+        }
+
+        quoteLabel.setContentHuggingPriority(.required, for: .horizontal)
+        quoteLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 }
