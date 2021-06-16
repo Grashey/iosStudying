@@ -11,37 +11,37 @@ import KeychainSwift
 class RegistryViewController: UIViewController {
 
     let registryView = RegistryView()
-    
+
     let service = AuthService()
     let router = AuthNavigationRouter()
-    
+
     override func loadView() {
         self.view = registryView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         router.controller = self
-        
+
         self.title = R.string.localizible.loginViewControllerTitle()
-        
+
         registryView.registryButton.addTarget(self, action: #selector(isButtonPressed), for: .touchUpInside)
-        
+
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGR)
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         registryView.loginTextField.text?.removeAll()
         registryView.passwordTextField.text?.removeAll()
     }
-    
+
     @objc func isButtonPressed() {
         hideKeyboard()
         guard let login = registryView.loginTextField.text, let password = registryView.passwordTextField.text else { return }
-        
+
         service.register(login: login, password: password) { result in
             switch result {
             case let .success(token):
@@ -54,8 +54,8 @@ class RegistryViewController: UIViewController {
             }
         }
     }
-    
-    @objc private func hideKeyboard(){
+
+    @objc private func hideKeyboard() {
            view.endEditing(true)
        }
 }

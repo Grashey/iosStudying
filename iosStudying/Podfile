@@ -9,5 +9,6 @@ target 'iosStudying' do
   pod 'Alamofire', '~> 5.4.3'
   pod 'R.swift'
   pod 'KeychainSwift', '~> 19.0.0'
+  pod 'SnapKit', '~> 5.0.1'
 
 end

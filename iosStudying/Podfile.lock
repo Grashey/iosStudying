@@ -4,11 +4,13 @@ PODS:
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4.3)
   - KeychainSwift (~> 19.0.0)
   - R.swift
+  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - KeychainSwift
     - R.swift
     - R.swift.Library
+    - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 263c27a214c926bc933046e6043a56993817b799
+PODFILE CHECKSUM: 5ee6aa1d94b5e38714228acc410174bbbbc9fc5f
 
 COCOAPODS: 1.10.1

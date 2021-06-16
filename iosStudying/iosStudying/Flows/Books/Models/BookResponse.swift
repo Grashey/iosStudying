@@ -16,10 +16,10 @@ struct BookResponse: Codable {
 
 // MARK: - Doc
 struct Doc: Codable {
-    let id, name: String
+    let identifier, name: String
 
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
+        case identifier = "_id"
         case name
     }
 }

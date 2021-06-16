@@ -16,10 +16,10 @@ struct ChapterResponse: Codable {
 
 // MARK: - Chapter
 struct Chapter: Codable {
-    let id, chapterName: String
+    let identifier, chapterName: String
 
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
+        case identifier = "_id"
         case chapterName
     }
 }

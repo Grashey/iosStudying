@@ -8,12 +8,12 @@
 import UIKit
 
 class AuthNavigationRouter: NavigationRouter {
-        
+
     func toRegistry() {
         let controller = RegistryViewController()
         show(controller)
     }
-    
+
     func toMain() {
         let controller = TabBarController()
         setAsRoot(controller)

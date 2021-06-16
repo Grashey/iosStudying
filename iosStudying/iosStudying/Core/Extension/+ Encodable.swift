@@ -8,7 +8,7 @@
 import Foundation
 
 extension Encodable {
-    
+
     func toDict() -> [String: Any]? {
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(self) else { return nil }

@@ -13,9 +13,9 @@ protocol HTTPClientProtocol {
 }
 
 class HTTPClient: HTTPClientProtocol {
-    
+
     let decoder = JSONDecoder()
-    
+
     func request<ResponseType: Decodable>(for route: Route, completion: @escaping (Result<ResponseType, Error>) -> Void) {
         let request = AF.request(
             route.makeURL(),
