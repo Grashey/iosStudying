@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A33445D2673A37B00250424 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33445C2673A37B00250424 /* DataLoader.swift */; };
+		4A33445F267A41DE00250424 /* PublicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33445E267A41DE00250424 /* PublicConstants.swift */; };
 		4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E015D26692B1E001E5D73 /* R.generated.swift */; };
 		4A6E01622669442A001E5D73 /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E01612669442A001E5D73 /* Localizible.strings */; };
 		4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0163266CDA03001E5D73 /* AuthService.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		2545A4DC13E40151EABF16B2 /* Pods-iosStudying.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosStudying.debug.xcconfig"; path = "Target Support Files/Pods-iosStudying/Pods-iosStudying.debug.xcconfig"; sourceTree = "<group>"; };
 		4A33445C2673A37B00250424 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		4A33445E267A41DE00250424 /* PublicConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicConstants.swift; sourceTree = "<group>"; };
 		4A6E015D26692B1E001E5D73 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4A6E01612669442A001E5D73 /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		4A6E0163266CDA03001E5D73 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				4A6E015D26692B1E001E5D73 /* R.generated.swift */,
 				4A6E01612669442A001E5D73 /* Localizible.strings */,
+				4A33445E267A41DE00250424 /* PublicConstants.swift */,
 				4A779F772667F1CF0055B34F /* Core */,
 				4A8B843E266563F200680E62 /* Flows */,
 				4A8B84332665630500680E62 /* Assets.xcassets */,
@@ -482,6 +485,7 @@
 				4A6E0185266FA380001E5D73 /* QuoteRoute.swift in Sources */,
 				4A6E0174266F7FFD001E5D73 /* NavigationRouter.swift in Sources */,
 				4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */,
+				4A33445F267A41DE00250424 /* PublicConstants.swift in Sources */,
 				4A6E0183266FA269001E5D73 /* QuoteResponse.swift in Sources */,
 				4A6E017D266FA154001E5D73 /* QuotesPresenter.swift in Sources */,
 				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,

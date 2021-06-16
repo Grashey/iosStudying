@@ -54,7 +54,7 @@ class BooksViewController: UIViewController {
     }
 
     @objc private func isLogoutButtonPressed() {
-        UserDefaults.standard.set(false, forKey: R.string.localizible.isAuthorized())
+        UserDefaults.standard.set(false, forKey: PublicConstants.authKey)
         router.toAuth()
     }
 }

@@ -17,9 +17,6 @@
 "alertErrorTitle" = "Error";
 "alertActionOkTitle" = "ok";
 
-"isAuthorized" = "isAuthorized";
-"token" = "MsX8LtYHkW7lOaj4Df6T";
-
 "placeholderLogin" = "enter login";
 "placeholderPassword" = "enter password";
 

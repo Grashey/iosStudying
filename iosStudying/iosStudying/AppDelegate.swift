@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let isAuthorized = UserDefaults.standard.bool(forKey: R.string.localizible.isAuthorized())
+        let isAuthorized = UserDefaults.standard.bool(forKey: PublicConstants.authKey)
 
         let controller: UIViewController = {
             if isAuthorized {

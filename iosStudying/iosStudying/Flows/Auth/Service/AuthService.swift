@@ -27,8 +27,8 @@ class AuthService {
             guard let passwordValue = self.defaults.value(forKey: login) as? String else { return completion(.failure(.noSuchUser)) }
 
             if password == passwordValue {
-                self.defaults.set(true, forKey: R.string.localizible.isAuthorized())
-                completion(.success(R.string.localizible.token()))
+                self.defaults.set(true, forKey: PublicConstants.authKey)
+                completion(.success(PublicConstants.token))
             } else if password.isEmpty {
                 completion(.failure(.passwordIsEmpty))
             } else {
@@ -42,9 +42,9 @@ class AuthService {
         DispatchQueue.global().async {
             sleep(2)
 
-            self.defaults.set(true, forKey: R.string.localizible.isAuthorized())
+            self.defaults.set(true, forKey: PublicConstants.authKey)
             self.defaults.set(password, forKey: login)
-            completion(.success(R.string.localizible.token()))
+            completion(.success(PublicConstants.token))
         }
     }
 }
