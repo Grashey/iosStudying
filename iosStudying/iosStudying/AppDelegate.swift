@@ -11,23 +11,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    lazy var rootCoordinator = RootCoordinator(window: window)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let isAuthorized = UserDefaults.standard.bool(forKey: PublicConstants.authKey)
-
-        let controller: UIViewController = {
-            if isAuthorized {
-                return TabBarController()
-            } else {
-                return UINavigationController(rootViewController: LoginViewController())
-            }
-        }()
-
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = controller
         window.makeKeyAndVisible()
         self.window = window
+
+        rootCoordinator.start()
 
         return true
     }

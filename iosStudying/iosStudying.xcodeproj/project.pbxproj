@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4A33445D2673A37B00250424 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33445C2673A37B00250424 /* DataLoader.swift */; };
 		4A33445F267A41DE00250424 /* PublicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33445E267A41DE00250424 /* PublicConstants.swift */; };
+		4A33446D267B89A700250424 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33446C267B89A700250424 /* RootCoordinator.swift */; };
+		4A33446F267B8AB600250424 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33446E267B8AB600250424 /* MainCoordinator.swift */; };
+		4A334472267B8AE800250424 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334471267B8AE800250424 /* AuthCoordinator.swift */; };
+		4A334474267B8FB100250424 /* RegistryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334473267B8FB100250424 /* RegistryCoordinator.swift */; };
 		4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E015D26692B1E001E5D73 /* R.generated.swift */; };
 		4A6E01622669442A001E5D73 /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E01612669442A001E5D73 /* Localizible.strings */; };
 		4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0163266CDA03001E5D73 /* AuthService.swift */; };
@@ -44,6 +48,10 @@
 		2545A4DC13E40151EABF16B2 /* Pods-iosStudying.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosStudying.debug.xcconfig"; path = "Target Support Files/Pods-iosStudying/Pods-iosStudying.debug.xcconfig"; sourceTree = "<group>"; };
 		4A33445C2673A37B00250424 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		4A33445E267A41DE00250424 /* PublicConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicConstants.swift; sourceTree = "<group>"; };
+		4A33446C267B89A700250424 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		4A33446E267B8AB600250424 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		4A334471267B8AE800250424 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		4A334473267B8FB100250424 /* RegistryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryCoordinator.swift; sourceTree = "<group>"; };
 		4A6E015D26692B1E001E5D73 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4A6E01612669442A001E5D73 /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		4A6E0163266CDA03001E5D73 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -99,10 +107,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4A334470267B8AD200250424 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A33446E267B8AB600250424 /* MainCoordinator.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4A6E0165266CDA08001E5D73 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				4A6E0163266CDA03001E5D73 /* AuthService.swift */,
+				4A334471267B8AE800250424 /* AuthCoordinator.swift */,
+				4A334473267B8FB100250424 /* RegistryCoordinator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -158,6 +176,7 @@
 		4A6E018A266FDCF4001E5D73 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				4A334470267B8AD200250424 /* Service */,
 				4A6E018B266FDD1A001E5D73 /* TabBarController.swift */,
 			);
 			path = TabBar;
@@ -186,6 +205,7 @@
 				4A779F792667F1F20055B34F /* HTTPClient.swift */,
 				4A779F7B2667F32E0055B34F /* Route.swift */,
 				4A33445C2673A37B00250424 /* DataLoader.swift */,
+				4A33446C267B89A700250424 /* RootCoordinator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -464,8 +484,10 @@
 				4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */,
 				4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */,
 				4A6E0189266FA5F7001E5D73 /* + Encodable.swift in Sources */,
+				4A334472267B8AE800250424 /* AuthCoordinator.swift in Sources */,
 				4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */,
 				4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */,
+				4A33446F267B8AB600250424 /* MainCoordinator.swift in Sources */,
 				4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */,
 				4A6E016C266D1D7D001E5D73 /* LoginView.swift in Sources */,
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
@@ -474,8 +496,10 @@
 				4A6E0185266FA380001E5D73 /* QuoteRoute.swift in Sources */,
 				4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */,
 				4A33445F267A41DE00250424 /* PublicConstants.swift in Sources */,
+				4A33446D267B89A700250424 /* RootCoordinator.swift in Sources */,
 				4A6E0183266FA269001E5D73 /* QuoteResponse.swift in Sources */,
 				4A6E017D266FA154001E5D73 /* QuotesPresenter.swift in Sources */,
+				4A334474267B8FB100250424 /* RegistryCoordinator.swift in Sources */,
 				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,
 				4A33445D2673A37B00250424 /* DataLoader.swift in Sources */,
 				4A6E0187266FA47D001E5D73 /* PaginationParameters.swift in Sources */,
