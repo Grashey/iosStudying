@@ -7,33 +7,35 @@
 
 import UIKit
 
+private enum Flows: Int {
+    case books
+    case quotes
+}
+
 class TabBarController: UITabBarController {
+
+    var onBooks: (() -> Void)?
+    var onQuotes: (() -> Void)?
+
+    let booksVC = UINavigationController(rootViewController: BooksViewController())
+    let quotesVC = UINavigationController(rootViewController: QuoteFactory().create())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureContent()
+        delegate = self
+        booksVC.tabBarItem = UITabBarItem(title: R.string.localizible.booksViewControllerTitle(), image: nil, selectedImage: nil)
+        quotesVC.tabBarItem = UITabBarItem(title: R.string.localizible.quotesViewControllerTitle(), image: nil, selectedImage: nil)
+        viewControllers = [booksVC, quotesVC]
     }
+}
 
-    private func configureContent() {
+extension TabBarController: UITabBarControllerDelegate {
 
-        let booksVC: BooksViewController = {
-            let controller = BooksViewController()
-            controller.title = R.string.localizible.booksViewControllerTitle()
-            return controller
-        }()
-
-        let quoteVC: QuotesViewController = {
-            let controller = QuotesViewController()
-            let quotePresenter = QuotesPresenter()
-            controller.presenter = quotePresenter
-            quotePresenter.viewController = controller
-            controller.title = R.string.localizible.quotesViewControllerTitle()
-            return controller
-        }()
-
-        self.viewControllers = [booksVC, quoteVC].map {
-            UINavigationController(rootViewController: $0)
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        switch Flows(rawValue: (viewControllers?.firstIndex(of: viewController)) ?? .zero) {
+        case .books: onBooks?()
+        case .quotes: onQuotes?()
+        case .none: break
         }
-        tabBar.tintColor = #colorLiteral(red: 0, green: 0.7117646337, blue: 0.8480874896, alpha: 1)
     }
 }

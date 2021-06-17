@@ -13,6 +13,9 @@
 		4A33446F267B8AB600250424 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33446E267B8AB600250424 /* MainCoordinator.swift */; };
 		4A334472267B8AE800250424 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334471267B8AE800250424 /* AuthCoordinator.swift */; };
 		4A334474267B8FB100250424 /* RegistryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334473267B8FB100250424 /* RegistryCoordinator.swift */; };
+		4A334476267B92D200250424 /* BooksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334475267B92D200250424 /* BooksCoordinator.swift */; };
+		4A334478267B9A0400250424 /* QuotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334477267B9A0400250424 /* QuotesCoordinator.swift */; };
+		4A33447A267BA9D200250424 /* QuoteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334479267BA9D200250424 /* QuoteFactory.swift */; };
 		4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E015D26692B1E001E5D73 /* R.generated.swift */; };
 		4A6E01622669442A001E5D73 /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E01612669442A001E5D73 /* Localizible.strings */; };
 		4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0163266CDA03001E5D73 /* AuthService.swift */; };
@@ -52,6 +55,9 @@
 		4A33446E267B8AB600250424 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		4A334471267B8AE800250424 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		4A334473267B8FB100250424 /* RegistryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryCoordinator.swift; sourceTree = "<group>"; };
+		4A334475267B92D200250424 /* BooksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCoordinator.swift; sourceTree = "<group>"; };
+		4A334477267B9A0400250424 /* QuotesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCoordinator.swift; sourceTree = "<group>"; };
+		4A334479267BA9D200250424 /* QuoteFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFactory.swift; sourceTree = "<group>"; };
 		4A6E015D26692B1E001E5D73 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4A6E01612669442A001E5D73 /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		4A6E0163266CDA03001E5D73 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -160,7 +166,9 @@
 			children = (
 				4A6E017F266FA1BA001E5D73 /* QuoteService.swift */,
 				4A6E0184266FA380001E5D73 /* QuoteRoute.swift */,
+				4A334477267B9A0400250424 /* QuotesCoordinator.swift */,
 				4A6E0186266FA47D001E5D73 /* PaginationParameters.swift */,
+				4A334479267BA9D200250424 /* QuoteFactory.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -214,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				4A779F82266818DF0055B34F /* Models */,
-				4A779F80266809DB0055B34F /* ChaptersViewController.swift */,
 			);
 			path = Chapters;
 			sourceTree = "<group>";
@@ -223,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				4A779F83266818F70055B34F /* ChapterResponse.swift */,
+				4A779F80266809DB0055B34F /* ChaptersViewController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 			children = (
 				4A81A2282666C560008D80E9 /* BookService.swift */,
 				4A779F7D2667F6EE0055B34F /* BooksRoute.swift */,
+				4A334475267B92D200250424 /* BooksCoordinator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -493,6 +502,7 @@
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
+				4A334476267B92D200250424 /* BooksCoordinator.swift in Sources */,
 				4A6E0185266FA380001E5D73 /* QuoteRoute.swift in Sources */,
 				4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */,
 				4A33445F267A41DE00250424 /* PublicConstants.swift in Sources */,
@@ -501,10 +511,12 @@
 				4A6E017D266FA154001E5D73 /* QuotesPresenter.swift in Sources */,
 				4A334474267B8FB100250424 /* RegistryCoordinator.swift in Sources */,
 				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,
+				4A334478267B9A0400250424 /* QuotesCoordinator.swift in Sources */,
 				4A33445D2673A37B00250424 /* DataLoader.swift in Sources */,
 				4A6E0187266FA47D001E5D73 /* PaginationParameters.swift in Sources */,
 				4A6E0180266FA1BA001E5D73 /* QuoteService.swift in Sources */,
 				4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */,
+				4A33447A267BA9D200250424 /* QuoteFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
