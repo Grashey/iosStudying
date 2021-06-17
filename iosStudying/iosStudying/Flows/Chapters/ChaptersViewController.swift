@@ -15,7 +15,6 @@ class ChaptersViewController: UIViewController {
 
     var chapters: ChapterResponse?
     let service = BookService()
-    let router = BooksNavigationRouter()
 
     override func loadView() {
         view = tableView
@@ -32,7 +31,6 @@ class ChaptersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        router.controller = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
 
@@ -46,7 +44,7 @@ class ChaptersViewController: UIViewController {
                 self.chapters = chapters
                 self.tableView.reloadData()
             case .failure(let error):
-                self.router.presentAlert(error: error)
+                print(error)
             }
         }
     }

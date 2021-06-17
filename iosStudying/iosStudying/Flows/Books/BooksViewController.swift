@@ -19,7 +19,8 @@ class BooksViewController: UIViewController {
 
     var books: BookResponse?
     let service = BookService()
-    let router = BooksNavigationRouter()
+    var onFinishFlow: (() -> Void)?
+    var onChapters: ((String, String) -> Void)?
 
     override func loadView() {
         view = tableView
@@ -28,7 +29,6 @@ class BooksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        router.controller = self
         configureExitButton()
         getData()
     }
@@ -40,7 +40,7 @@ class BooksViewController: UIViewController {
                 self.books = books
                 self.tableView.reloadData()
             case .failure(let error):
-                self.router.presentAlert(error: error)
+                print(error)
             }
         }
     }
@@ -55,7 +55,7 @@ class BooksViewController: UIViewController {
 
     @objc private func isLogoutButtonPressed() {
         UserDefaults.standard.set(false, forKey: PublicConstants.authKey)
-        router.toAuth()
+        onFinishFlow?()
     }
 }
 
@@ -75,7 +75,7 @@ extension BooksViewController: UITableViewDataSource {
 extension BooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let book  = books?.docs[indexPath.row] {
-            router.toChapters(bookID: book.identifier, bookTitle: book.name)
+            onChapters?(book.identifier, book.name)
         }
     }
 }

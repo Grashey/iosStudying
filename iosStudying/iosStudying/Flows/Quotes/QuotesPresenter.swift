@@ -31,7 +31,7 @@ class QuotesPresenter {
                     self.quotes.append(contentsOf: data.docs)
                     self.viewController?.reloadData()
                 case .failure(let error):
-                    self.viewController?.router.presentAlert(error: error)
+                    print(error)
                 }
                 self.isLoading = false
             }

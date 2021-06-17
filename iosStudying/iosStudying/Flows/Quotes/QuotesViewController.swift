@@ -16,7 +16,6 @@ enum Constants {
 class QuotesViewController: UIViewController {
 
     var presenter: QuotesPresenter?
-    let router = BooksNavigationRouter()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -38,7 +37,6 @@ class QuotesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        router.controller = self
         presenter?.loadNext()
     }
 

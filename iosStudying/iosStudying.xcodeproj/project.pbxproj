@@ -16,9 +16,6 @@
 		4A6E016C266D1D7D001E5D73 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E016B266D1D7D001E5D73 /* LoginView.swift */; };
 		4A6E016F266D216F001E5D73 /* RegistryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E016E266D216F001E5D73 /* RegistryView.swift */; };
 		4A6E0172266D4F19001E5D73 /* + KeyChainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0171266D4F19001E5D73 /* + KeyChainSwift.swift */; };
-		4A6E0174266F7FFD001E5D73 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0173266F7FFD001E5D73 /* NavigationRouter.swift */; };
-		4A6E0176266F8227001E5D73 /* AuthNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0175266F8226001E5D73 /* AuthNavigationRouter.swift */; };
-		4A6E0178266F85EB001E5D73 /* BooksNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0177266F85EB001E5D73 /* BooksNavigationRouter.swift */; };
 		4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E017A266F8E73001E5D73 /* QuotesViewController.swift */; };
 		4A6E017D266FA154001E5D73 /* QuotesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E017C266FA154001E5D73 /* QuotesPresenter.swift */; };
 		4A6E0180266FA1BA001E5D73 /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E017F266FA1BA001E5D73 /* QuoteService.swift */; };
@@ -54,9 +51,6 @@
 		4A6E016B266D1D7D001E5D73 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4A6E016E266D216F001E5D73 /* RegistryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryView.swift; sourceTree = "<group>"; };
 		4A6E0171266D4F19001E5D73 /* + KeyChainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+ KeyChainSwift.swift"; sourceTree = "<group>"; };
-		4A6E0173266F7FFD001E5D73 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
-		4A6E0175266F8226001E5D73 /* AuthNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationRouter.swift; sourceTree = "<group>"; };
-		4A6E0177266F85EB001E5D73 /* BooksNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksNavigationRouter.swift; sourceTree = "<group>"; };
 		4A6E017A266F8E73001E5D73 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		4A6E017C266FA154001E5D73 /* QuotesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenter.swift; sourceTree = "<group>"; };
 		4A6E017F266FA1BA001E5D73 /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
@@ -109,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				4A6E0163266CDA03001E5D73 /* AuthService.swift */,
-				4A6E0175266F8226001E5D73 /* AuthNavigationRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -192,7 +185,6 @@
 			children = (
 				4A779F792667F1F20055B34F /* HTTPClient.swift */,
 				4A779F7B2667F32E0055B34F /* Route.swift */,
-				4A6E0173266F7FFD001E5D73 /* NavigationRouter.swift */,
 				4A33445C2673A37B00250424 /* DataLoader.swift */,
 			);
 			path = Service;
@@ -228,7 +220,6 @@
 			children = (
 				4A81A2282666C560008D80E9 /* BookService.swift */,
 				4A779F7D2667F6EE0055B34F /* BooksRoute.swift */,
-				4A6E0177266F85EB001E5D73 /* BooksNavigationRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -469,7 +460,6 @@
 				4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */,
 				4A6E018C266FDD1A001E5D73 /* TabBarController.swift in Sources */,
 				4A6E016F266D216F001E5D73 /* RegistryView.swift in Sources */,
-				4A6E0178266F85EB001E5D73 /* BooksNavigationRouter.swift in Sources */,
 				4A6E0172266D4F19001E5D73 /* + KeyChainSwift.swift in Sources */,
 				4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */,
 				4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */,
@@ -477,13 +467,11 @@
 				4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */,
 				4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */,
 				4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */,
-				4A6E0176266F8227001E5D73 /* AuthNavigationRouter.swift in Sources */,
 				4A6E016C266D1D7D001E5D73 /* LoginView.swift in Sources */,
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
 				4A6E0185266FA380001E5D73 /* QuoteRoute.swift in Sources */,
-				4A6E0174266F7FFD001E5D73 /* NavigationRouter.swift in Sources */,
 				4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */,
 				4A33445F267A41DE00250424 /* PublicConstants.swift in Sources */,
 				4A6E0183266FA269001E5D73 /* QuoteResponse.swift in Sources */,
