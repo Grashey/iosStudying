@@ -9,9 +9,9 @@ import UIKit
 
 class BooksCoordinator {
 
-    var navigationController: UINavigationController?
+    var navigationController: UINavigationController
 
-    init(navigationController: UINavigationController?) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
@@ -21,13 +21,13 @@ class BooksCoordinator {
         controller.onChapters = { bookID, bookTitle in
             let chaptersVC = ChaptersViewController(bookID: bookID)
             chaptersVC.title = bookTitle
-            controller.navigationController?.pushViewController(chaptersVC, animated: true)
+            self.navigationController.pushViewController(chaptersVC, animated: true)
         }
 
         controller.onFinishFlow = {
             NotificationCenter.default.post(name: PublicConstants.authNotificationName, object: nil)
         }
 
-        navigationController?.viewControllers = [controller]
+        navigationController.viewControllers = [controller]
     }
 }
