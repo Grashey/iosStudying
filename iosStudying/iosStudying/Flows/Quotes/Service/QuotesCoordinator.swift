@@ -9,6 +9,15 @@ import UIKit
 
 class QuotesCoordinator {
 
+    var navigationController: UINavigationController?
+
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
+    }
+
     func start() {
+        let controller = QuoteFactory().create()
+
+        navigationController?.viewControllers = [controller]
     }
 }

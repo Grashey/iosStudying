@@ -11,7 +11,7 @@ class RootCoordinator {
 
     let window: UIWindow?
 
-    lazy var mainCoordinator = MainCoordinator(window: window)
+    lazy var tabBarCoordinator = TabBarCoordinator(window: window)
     lazy var authCoordinator = AuthCoordinator(window: window)
 
     init(window: UIWindow?) {
@@ -31,7 +31,7 @@ class RootCoordinator {
     }
 
     private func showMainFlow() {
-        mainCoordinator.start()
+        tabBarCoordinator.start()
     }
 
 }

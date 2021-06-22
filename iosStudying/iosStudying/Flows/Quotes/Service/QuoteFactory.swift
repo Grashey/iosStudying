@@ -8,7 +8,7 @@
 import UIKit
 
 class QuoteFactory {
-    
+
     func create() -> UIViewController {
        let quoteViewController = QuotesViewController()
         let quotePresenter = QuotesPresenter()

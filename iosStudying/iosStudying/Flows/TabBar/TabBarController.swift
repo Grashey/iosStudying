@@ -17,25 +17,29 @@ class TabBarController: UITabBarController {
     var onBooks: (() -> Void)?
     var onQuotes: (() -> Void)?
 
-    let booksVC = UINavigationController(rootViewController: BooksViewController())
-    let quotesVC = UINavigationController(rootViewController: QuoteFactory().create())
+    let booksNavigation = UINavigationController()
+    let quotesNavigation = UINavigationController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        booksVC.tabBarItem = UITabBarItem(title: R.string.localizible.booksViewControllerTitle(), image: nil, selectedImage: nil)
-        quotesVC.tabBarItem = UITabBarItem(title: R.string.localizible.quotesViewControllerTitle(), image: nil, selectedImage: nil)
-        viewControllers = [booksVC, quotesVC]
+        booksNavigation.tabBarItem = UITabBarItem(title: R.string.localizible.booksViewControllerTitle(), image: nil, selectedImage: nil)
+        quotesNavigation.tabBarItem = UITabBarItem(title: R.string.localizible.quotesViewControllerTitle(), image: nil, selectedImage: nil)
+        viewControllers = [booksNavigation, quotesNavigation]
+    }
+
+    func showBooks() {
+        onBooks?()
     }
 }
 
 extension TabBarController: UITabBarControllerDelegate {
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        switch Flows(rawValue: (viewControllers?.firstIndex(of: viewController)) ?? .zero) {
-        case .books: onBooks?()
-        case .quotes: onQuotes?()
-        case .none: break
+        switch viewControllers?.firstIndex(of: viewController) {
+        case 0: onBooks?()
+        case 1: onQuotes?()
+        default: break
         }
     }
 }

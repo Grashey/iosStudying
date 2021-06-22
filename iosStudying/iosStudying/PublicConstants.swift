@@ -10,4 +10,5 @@ import Foundation
 enum PublicConstants {
     static let authKey = "isAuthorized"
     static let token = "MsX8LtYHkW7lOaj4Df6T"
+    static let authNotificationName = Notification.Name("isAuthorized")
 }

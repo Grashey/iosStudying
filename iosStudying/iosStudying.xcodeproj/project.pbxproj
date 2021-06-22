@@ -10,7 +10,7 @@
 		4A33445D2673A37B00250424 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33445C2673A37B00250424 /* DataLoader.swift */; };
 		4A33445F267A41DE00250424 /* PublicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33445E267A41DE00250424 /* PublicConstants.swift */; };
 		4A33446D267B89A700250424 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33446C267B89A700250424 /* RootCoordinator.swift */; };
-		4A33446F267B8AB600250424 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33446E267B8AB600250424 /* MainCoordinator.swift */; };
+		4A33446F267B8AB600250424 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33446E267B8AB600250424 /* TabBarCoordinator.swift */; };
 		4A334472267B8AE800250424 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334471267B8AE800250424 /* AuthCoordinator.swift */; };
 		4A334474267B8FB100250424 /* RegistryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334473267B8FB100250424 /* RegistryCoordinator.swift */; };
 		4A334476267B92D200250424 /* BooksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334475267B92D200250424 /* BooksCoordinator.swift */; };
@@ -52,7 +52,7 @@
 		4A33445C2673A37B00250424 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		4A33445E267A41DE00250424 /* PublicConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicConstants.swift; sourceTree = "<group>"; };
 		4A33446C267B89A700250424 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
-		4A33446E267B8AB600250424 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		4A33446E267B8AB600250424 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		4A334471267B8AE800250424 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		4A334473267B8FB100250424 /* RegistryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryCoordinator.swift; sourceTree = "<group>"; };
 		4A334475267B92D200250424 /* BooksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCoordinator.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		4A334470267B8AD200250424 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				4A33446E267B8AB600250424 /* MainCoordinator.swift */,
+				4A33446E267B8AB600250424 /* TabBarCoordinator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -496,7 +496,7 @@
 				4A334472267B8AE800250424 /* AuthCoordinator.swift in Sources */,
 				4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */,
 				4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */,
-				4A33446F267B8AB600250424 /* MainCoordinator.swift in Sources */,
+				4A33446F267B8AB600250424 /* TabBarCoordinator.swift in Sources */,
 				4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */,
 				4A6E016C266D1D7D001E5D73 /* LoginView.swift in Sources */,
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,

@@ -29,6 +29,7 @@ class BooksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = R.string.localizible.booksViewControllerTitle()
         configureExitButton()
         getData()
     }
@@ -74,6 +75,7 @@ extension BooksViewController: UITableViewDataSource {
 
 extension BooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if let book  = books?.docs[indexPath.row] {
             onChapters?(book.identifier, book.name)
         }

@@ -9,12 +9,9 @@ import UIKit
 
 class RegistryCoordinator {
 
-    var window: UIWindow?
     var navigationController: UINavigationController?
-    lazy var mainCoordinator = MainCoordinator(window: window)
 
-    init(window: UIWindow?, navigationController: UINavigationController?) {
-        self.window = window
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
 
@@ -25,6 +22,6 @@ class RegistryCoordinator {
     }
 
     func toMain() {
-        mainCoordinator.start()
+        NotificationCenter.default.post(name: PublicConstants.authNotificationName, object: nil)
     }
 }

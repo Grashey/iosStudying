@@ -18,9 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
         self.window = window
-
         rootCoordinator.start()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(restartCoordinator), name: PublicConstants.authNotificationName, object: nil)
+
         return true
+    }
+
+    @objc private func restartCoordinator() {
+        rootCoordinator.start()
     }
 }

@@ -37,6 +37,7 @@ class QuotesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = R.string.localizible.quotesViewControllerTitle()
         presenter?.loadNext()
     }
 

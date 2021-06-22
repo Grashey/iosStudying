@@ -11,8 +11,7 @@ class AuthCoordinator {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
-    lazy var mainCoordinator = MainCoordinator(window: window)
-    lazy var registryCoordinator = RegistryCoordinator(window: window, navigationController: navigationController)
+    lazy var registryCoordinator = RegistryCoordinator(navigationController: navigationController)
 
     init(window: UIWindow?) {
         self.window = window
@@ -29,7 +28,7 @@ class AuthCoordinator {
     }
 
     func toMain() {
-        mainCoordinator.start()
+        NotificationCenter.default.post(name: PublicConstants.authNotificationName, object: nil)
     }
 
     func toRegistry() {
