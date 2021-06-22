@@ -16,6 +16,7 @@ class RootCoordinator {
 
     init(window: UIWindow?) {
         self.window = window
+        NotificationCenter.default.addObserver(self, selector: #selector(restartCoordinator), name: PublicConstants.authNotificationName, object: nil)
     }
 
     func start() {
@@ -24,6 +25,10 @@ class RootCoordinator {
         } else {
             showAuthFlow()
         }
+    }
+
+    @objc private func restartCoordinator() {
+        start()
     }
 
     private func showAuthFlow() {

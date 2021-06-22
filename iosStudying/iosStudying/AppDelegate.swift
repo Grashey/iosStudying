@@ -20,12 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         rootCoordinator.start()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(restartCoordinator), name: PublicConstants.authNotificationName, object: nil)
-
         return true
-    }
-
-    @objc private func restartCoordinator() {
-        rootCoordinator.start()
     }
 }

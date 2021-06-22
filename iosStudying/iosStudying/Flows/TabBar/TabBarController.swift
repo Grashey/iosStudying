@@ -36,10 +36,10 @@ class TabBarController: UITabBarController {
 extension TabBarController: UITabBarControllerDelegate {
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        switch viewControllers?.firstIndex(of: viewController) {
-        case 0: onBooks?()
-        case 1: onQuotes?()
-        default: break
+        switch Flows(rawValue: viewControllers?.firstIndex(of: viewController) ?? .zero) {
+        case .books: onBooks?()
+        case .quotes: onQuotes?()
+        case .none: break
         }
     }
 }
