@@ -20,6 +20,13 @@
 		4A33447E268496DB00250424 /* BooksFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33447D268496DB00250424 /* BooksFactory.swift */; };
 		4A3344802684A13E00250424 /* ChaptersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33447F2684A13E00250424 /* ChaptersPresenter.swift */; };
 		4A3344832684A2F200250424 /* ChaptersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344822684A2F200250424 /* ChaptersFactory.swift */; };
+		4A3344872684AF1A00250424 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344862684AF1A00250424 /* MovieResponse.swift */; };
+		4A33448A2684B01100250424 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344892684B01100250424 /* MovieService.swift */; };
+		4A33448C2684B07C00250424 /* MovieRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33448B2684B07C00250424 /* MovieRoute.swift */; };
+		4A33448E2684B16200250424 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33448D2684B16200250424 /* MoviesViewController.swift */; };
+		4A3344902684B1A500250424 /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33448F2684B1A500250424 /* MoviesPresenter.swift */; };
+		4A3344922684B1E100250424 /* MoviesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344912684B1E100250424 /* MoviesFactory.swift */; };
+		4A3344942684B23200250424 /* MoviesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344932684B23200250424 /* MoviesCoordinator.swift */; };
 		4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E015D26692B1E001E5D73 /* R.generated.swift */; };
 		4A6E01622669442A001E5D73 /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E01612669442A001E5D73 /* Localizible.strings */; };
 		4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0163266CDA03001E5D73 /* AuthService.swift */; };
@@ -66,6 +73,13 @@
 		4A33447D268496DB00250424 /* BooksFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksFactory.swift; sourceTree = "<group>"; };
 		4A33447F2684A13E00250424 /* ChaptersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersPresenter.swift; sourceTree = "<group>"; };
 		4A3344822684A2F200250424 /* ChaptersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersFactory.swift; sourceTree = "<group>"; };
+		4A3344862684AF1A00250424 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		4A3344892684B01100250424 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		4A33448B2684B07C00250424 /* MovieRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRoute.swift; sourceTree = "<group>"; };
+		4A33448D2684B16200250424 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		4A33448F2684B1A500250424 /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
+		4A3344912684B1E100250424 /* MoviesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFactory.swift; sourceTree = "<group>"; };
+		4A3344932684B23200250424 /* MoviesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCoordinator.swift; sourceTree = "<group>"; };
 		4A6E015D26692B1E001E5D73 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4A6E01612669442A001E5D73 /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		4A6E0163266CDA03001E5D73 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -133,6 +147,36 @@
 			isa = PBXGroup;
 			children = (
 				4A3344822684A2F200250424 /* ChaptersFactory.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4A3344842684AEAF00250424 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				4A3344882684AFEA00250424 /* Service */,
+				4A3344852684AF0200250424 /* Models */,
+				4A33448D2684B16200250424 /* MoviesViewController.swift */,
+				4A33448F2684B1A500250424 /* MoviesPresenter.swift */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		4A3344852684AF0200250424 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A3344862684AF1A00250424 /* MovieResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A3344882684AFEA00250424 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A3344892684B01100250424 /* MovieService.swift */,
+				4A33448B2684B07C00250424 /* MovieRoute.swift */,
+				4A3344912684B1E100250424 /* MoviesFactory.swift */,
+				4A3344932684B23200250424 /* MoviesCoordinator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -311,6 +355,7 @@
 			children = (
 				4A6E018A266FDCF4001E5D73 /* TabBar */,
 				4A8B843F266563FB00680E62 /* Auth */,
+				4A3344842684AEAF00250424 /* Movies */,
 				4A8B844226656B0E00680E62 /* Books */,
 				4A779F7F266809AE0055B34F /* Chapters */,
 				4A6E0179266F8E3C001E5D73 /* Quotes */,
@@ -503,10 +548,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A3344872684AF1A00250424 /* MovieResponse.swift in Sources */,
 				4A6E019126702314001E5D73 /* QuotesTableViewCell.swift in Sources */,
 				4A8B842F2665630400680E62 /* LoginViewController.swift in Sources */,
+				4A3344942684B23200250424 /* MoviesCoordinator.swift in Sources */,
 				4A6E016A266D1D37001E5D73 /* RegistryViewController.swift in Sources */,
 				4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */,
+				4A3344922684B1E100250424 /* MoviesFactory.swift in Sources */,
+				4A33448E2684B16200250424 /* MoviesViewController.swift in Sources */,
 				4A6E018C266FDD1A001E5D73 /* TabBarController.swift in Sources */,
 				4A6E016F266D216F001E5D73 /* RegistryView.swift in Sources */,
 				4A6E0172266D4F19001E5D73 /* + KeyChainSwift.swift in Sources */,
@@ -516,6 +565,7 @@
 				4A334472267B8AE800250424 /* AuthCoordinator.swift in Sources */,
 				4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */,
 				4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */,
+				4A33448A2684B01100250424 /* MovieService.swift in Sources */,
 				4A33446F267B8AB600250424 /* TabBarCoordinator.swift in Sources */,
 				4A3344832684A2F200250424 /* ChaptersFactory.swift in Sources */,
 				4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */,
@@ -528,6 +578,7 @@
 				4A334476267B92D200250424 /* BooksCoordinator.swift in Sources */,
 				4A6E0185266FA380001E5D73 /* QuoteRoute.swift in Sources */,
 				4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */,
+				4A3344902684B1A500250424 /* MoviesPresenter.swift in Sources */,
 				4A33445F267A41DE00250424 /* PublicConstants.swift in Sources */,
 				4A33446D267B89A700250424 /* RootCoordinator.swift in Sources */,
 				4A6E0183266FA269001E5D73 /* QuoteResponse.swift in Sources */,
@@ -536,6 +587,7 @@
 				4A779F81266809DB0055B34F /* ChaptersViewController.swift in Sources */,
 				4A334478267B9A0400250424 /* QuotesCoordinator.swift in Sources */,
 				4A33445D2673A37B00250424 /* DataLoader.swift in Sources */,
+				4A33448C2684B07C00250424 /* MovieRoute.swift in Sources */,
 				4A6E0187266FA47D001E5D73 /* PaginationParameters.swift in Sources */,
 				4A6E0180266FA1BA001E5D73 /* QuoteService.swift in Sources */,
 				4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */,

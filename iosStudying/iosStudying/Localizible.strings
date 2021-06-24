@@ -13,6 +13,7 @@
 "booksViewControllerTitle" = "Books";
 "quotesViewControllerTitle" = "Quotes";
 "chaptersViewControllerTitle" = "Chapters";
+"moviesViewControllerTitle" = "Movies";
 
 "alertErrorTitle" = "Error";
 "alertActionOkTitle" = "ok";

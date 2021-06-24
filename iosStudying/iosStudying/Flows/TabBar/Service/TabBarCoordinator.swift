@@ -12,6 +12,7 @@ class TabBarCoordinator {
     var window: UIWindow?
     let controller = TabBarController()
     lazy var booksCoordinator = BooksCoordinator(navigationController: controller.booksNavigation)
+    lazy var moviesCoordinator = MoviesCoordinator(navigationController: controller.moviesNavigation)
     lazy var quotesCoordinator = QuotesCoordinator(navigationController: controller.quotesNavigation)
 
     init(window: UIWindow?) {
@@ -21,6 +22,10 @@ class TabBarCoordinator {
     func start() {
         controller.onBooks = {
             self.booksCoordinator.start()
+        }
+
+        controller.onMovies = {
+            self.moviesCoordinator.start()
         }
 
         controller.onQuotes = {
