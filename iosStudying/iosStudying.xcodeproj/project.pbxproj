@@ -18,6 +18,8 @@
 		4A33447A267BA9D200250424 /* QuoteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334479267BA9D200250424 /* QuoteFactory.swift */; };
 		4A33447C2684928E00250424 /* BooksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33447B2684928E00250424 /* BooksPresenter.swift */; };
 		4A33447E268496DB00250424 /* BooksFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33447D268496DB00250424 /* BooksFactory.swift */; };
+		4A3344802684A13E00250424 /* ChaptersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33447F2684A13E00250424 /* ChaptersPresenter.swift */; };
+		4A3344832684A2F200250424 /* ChaptersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344822684A2F200250424 /* ChaptersFactory.swift */; };
 		4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E015D26692B1E001E5D73 /* R.generated.swift */; };
 		4A6E01622669442A001E5D73 /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E01612669442A001E5D73 /* Localizible.strings */; };
 		4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0163266CDA03001E5D73 /* AuthService.swift */; };
@@ -62,6 +64,8 @@
 		4A334479267BA9D200250424 /* QuoteFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFactory.swift; sourceTree = "<group>"; };
 		4A33447B2684928E00250424 /* BooksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksPresenter.swift; sourceTree = "<group>"; };
 		4A33447D268496DB00250424 /* BooksFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksFactory.swift; sourceTree = "<group>"; };
+		4A33447F2684A13E00250424 /* ChaptersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersPresenter.swift; sourceTree = "<group>"; };
+		4A3344822684A2F200250424 /* ChaptersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersFactory.swift; sourceTree = "<group>"; };
 		4A6E015D26692B1E001E5D73 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4A6E01612669442A001E5D73 /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		4A6E0163266CDA03001E5D73 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -121,6 +125,14 @@
 			isa = PBXGroup;
 			children = (
 				4A33446E267B8AB600250424 /* TabBarCoordinator.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4A3344812684A2D900250424 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A3344822684A2F200250424 /* ChaptersFactory.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -225,7 +237,10 @@
 		4A779F7F266809AE0055B34F /* Chapters */ = {
 			isa = PBXGroup;
 			children = (
+				4A3344812684A2D900250424 /* Service */,
 				4A779F82266818DF0055B34F /* Models */,
+				4A779F80266809DB0055B34F /* ChaptersViewController.swift */,
+				4A33447F2684A13E00250424 /* ChaptersPresenter.swift */,
 			);
 			path = Chapters;
 			sourceTree = "<group>";
@@ -234,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				4A779F83266818F70055B34F /* ChapterResponse.swift */,
-				4A779F80266809DB0055B34F /* ChaptersViewController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -503,9 +517,11 @@
 				4A81A2262666C143008D80E9 /* BookResponse.swift in Sources */,
 				4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */,
 				4A33446F267B8AB600250424 /* TabBarCoordinator.swift in Sources */,
+				4A3344832684A2F200250424 /* ChaptersFactory.swift in Sources */,
 				4A779F84266818F70055B34F /* ChapterResponse.swift in Sources */,
 				4A6E016C266D1D7D001E5D73 /* LoginView.swift in Sources */,
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
+				4A3344802684A13E00250424 /* ChaptersPresenter.swift in Sources */,
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
 				4A33447E268496DB00250424 /* BooksFactory.swift in Sources */,

@@ -19,7 +19,7 @@ class BooksCoordinator {
         guard let controller = BooksFactory().create() as? BooksViewController else { return }
 
         controller.onChapters = { bookID, bookTitle in
-            let chaptersVC = ChaptersViewController(bookID: bookID)
+            let chaptersVC = ChaptersFactory().create(with: bookID)
             chaptersVC.title = bookTitle
             self.navigationController.pushViewController(chaptersVC, animated: true)
         }

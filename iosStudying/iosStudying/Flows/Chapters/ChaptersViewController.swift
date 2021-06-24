@@ -10,11 +10,9 @@ import UIKit
 class ChaptersViewController: UIViewController {
 
     var bookID: String
+    var presenter: ChaptersPresenter?
 
     let tableView = UITableView()
-
-    var chapters: ChapterResponse?
-    let service = BookService()
 
     override func loadView() {
         view = tableView
@@ -33,32 +31,21 @@ class ChaptersViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
+        tableView.allowsSelection = false
 
-        getData()
-    }
-
-    func getData() {
-        service.fetchChapters(bookID: bookID) { result in
-            switch result {
-            case .success(let chapters):
-                self.chapters = chapters
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
+        presenter?.getData()
     }
 }
 
 extension ChaptersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chapters?.docs.count ?? 0
+        return presenter?.chapters?.docs.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()),
-              let chapters = chapters else { return UITableViewCell() }
-        cell.textLabel?.text = chapters.docs[indexPath.row].chapterName
+              let chapters = presenter?.chapters else { return UITableViewCell() }
+        cell.textLabel?.text = "\(indexPath.row + 1). " + chapters.docs[indexPath.row].chapterName
         return cell
     }
 }
