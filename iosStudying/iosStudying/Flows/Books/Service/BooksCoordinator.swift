@@ -16,7 +16,7 @@ class BooksCoordinator {
     }
 
     func start() {
-        let controller = BooksViewController()
+        guard let controller = BooksFactory().create() as? BooksViewController else { return }
 
         controller.onChapters = { bookID, bookTitle in
             let chaptersVC = ChaptersViewController(bookID: bookID)

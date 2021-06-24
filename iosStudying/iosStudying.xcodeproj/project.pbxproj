@@ -16,6 +16,8 @@
 		4A334476267B92D200250424 /* BooksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334475267B92D200250424 /* BooksCoordinator.swift */; };
 		4A334478267B9A0400250424 /* QuotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334477267B9A0400250424 /* QuotesCoordinator.swift */; };
 		4A33447A267BA9D200250424 /* QuoteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334479267BA9D200250424 /* QuoteFactory.swift */; };
+		4A33447C2684928E00250424 /* BooksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33447B2684928E00250424 /* BooksPresenter.swift */; };
+		4A33447E268496DB00250424 /* BooksFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33447D268496DB00250424 /* BooksFactory.swift */; };
 		4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E015D26692B1E001E5D73 /* R.generated.swift */; };
 		4A6E01622669442A001E5D73 /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E01612669442A001E5D73 /* Localizible.strings */; };
 		4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0163266CDA03001E5D73 /* AuthService.swift */; };
@@ -58,6 +60,8 @@
 		4A334475267B92D200250424 /* BooksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCoordinator.swift; sourceTree = "<group>"; };
 		4A334477267B9A0400250424 /* QuotesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCoordinator.swift; sourceTree = "<group>"; };
 		4A334479267BA9D200250424 /* QuoteFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFactory.swift; sourceTree = "<group>"; };
+		4A33447B2684928E00250424 /* BooksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksPresenter.swift; sourceTree = "<group>"; };
+		4A33447D268496DB00250424 /* BooksFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksFactory.swift; sourceTree = "<group>"; };
 		4A6E015D26692B1E001E5D73 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4A6E01612669442A001E5D73 /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		4A6E0163266CDA03001E5D73 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				4A81A2282666C560008D80E9 /* BookService.swift */,
 				4A779F7D2667F6EE0055B34F /* BooksRoute.swift */,
 				4A334475267B92D200250424 /* BooksCoordinator.swift */,
+				4A33447D268496DB00250424 /* BooksFactory.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				4A81A2272666C4EB008D80E9 /* Service */,
 				4A81A2242666C124008D80E9 /* Models */,
 				4A8B844026656B0600680E62 /* BooksViewController.swift */,
+				4A33447B2684928E00250424 /* BooksPresenter.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -502,6 +508,7 @@
 				4A8B842B2665630400680E62 /* AppDelegate.swift in Sources */,
 				4A779F7C2667F32E0055B34F /* Route.swift in Sources */,
 				4A81A2292666C560008D80E9 /* BookService.swift in Sources */,
+				4A33447E268496DB00250424 /* BooksFactory.swift in Sources */,
 				4A334476267B92D200250424 /* BooksCoordinator.swift in Sources */,
 				4A6E0185266FA380001E5D73 /* QuoteRoute.swift in Sources */,
 				4A6E017B266F8E73001E5D73 /* QuotesViewController.swift in Sources */,
@@ -517,6 +524,7 @@
 				4A6E0180266FA1BA001E5D73 /* QuoteService.swift in Sources */,
 				4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */,
 				4A33447A267BA9D200250424 /* QuoteFactory.swift in Sources */,
+				4A33447C2684928E00250424 /* BooksPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
