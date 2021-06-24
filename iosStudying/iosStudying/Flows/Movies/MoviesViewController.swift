@@ -15,7 +15,11 @@ class MoviesViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
+        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.description())
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = Constants.tableViewRowHeight
+        tableView.separatorStyle = .singleLine
+        tableView.separatorInset = UIEdgeInsets(top: .zero, left: Constants.edgeInset, bottom: .zero, right: Constants.edgeInset)
         return tableView
     }()
 
@@ -45,9 +49,10 @@ extension MoviesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()),
-              let movies = presenter?.movies else { return UITableViewCell() }
-        cell.textLabel?.text = movies[indexPath.row].name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        if let movie = presenter?.movies[indexPath.row] {
+            cell.configure(with: movie)
+        }
         return cell
     }
 }

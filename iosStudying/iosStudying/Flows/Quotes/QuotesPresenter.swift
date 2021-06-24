@@ -48,7 +48,7 @@ class QuotesPresenter {
         }
     }
 
-    func makeQuotesViewCellModelForIndex(index: Int) -> QuotesCellViewModel {
+    func makeQuotesViewCellModelForIndex(index: Int) -> QuoteCellViewModel {
         let model = quotes[index]
         let isFavorite: Bool = {
             if dataLoader.load(key: model.identifier) != nil {

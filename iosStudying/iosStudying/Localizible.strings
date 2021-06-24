@@ -23,3 +23,11 @@
 
 "quotesViewCellMovieLabel" = "Movie:";
 "quotesViewCellQuoteLabel" = "Quote:";
+
+"movieViewCellNameLabel" = "Name:";
+"movieViewCellRuntimeLabel" = "Runtime, minutes:";
+"movieViewCellBudgetLabel" = "Budget, $ millions:";
+"movieViewCellRevenueLabel" = "Revenue, $ millions:";
+"movieViewCellAwardNominationsLabel" = "Academy Award Nominations:";
+"movieViewCellAwardWinsLabel" = "Academy Award Wins:";
+"movieViewCellScoreLabel" = "Rotten Tomatoes Score:";

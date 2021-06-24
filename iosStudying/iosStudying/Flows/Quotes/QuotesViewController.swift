@@ -23,7 +23,7 @@ class QuotesViewController: UIViewController {
         tableView.dataSource = self
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refreshQuotes), for: .valueChanged)
-        tableView.register(QuotesTableViewCell.self, forCellReuseIdentifier: QuotesTableViewCell.description())
+        tableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.description())
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = Constants.tableViewRowHeight
         tableView.separatorStyle = .singleLine
@@ -61,7 +61,7 @@ extension QuotesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: QuotesTableViewCell.description(), for: indexPath) as? QuotesTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.description(), for: indexPath) as? QuoteTableViewCell else { return UITableViewCell() }
         if let model = presenter?.makeQuotesViewCellModelForIndex(index: indexPath.row) {
             cell.configure(with: model)
         }
