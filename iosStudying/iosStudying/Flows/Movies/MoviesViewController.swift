@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum MovieCells: Int {
+enum MovieCells: Int, CaseIterable {
     case info
     case quotes
 }
@@ -63,7 +63,7 @@ extension MoviesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return MovieCells.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -30,7 +30,7 @@ class QuotesPresenter {
                     self.offset += Constants.resultsLimit
                     self.quotes.append(contentsOf: data.docs)
                     if self.quotes.isEmpty {
-                        self.showEmptyQuotesLabel()
+                        self.viewController?.showEmptyQuotesLabel()
                     }
                     self.viewController?.reloadData()
                 case .failure(let error):
@@ -40,18 +40,6 @@ class QuotesPresenter {
             }
         } else {
             return
-        }
-    }
-
-    func showEmptyQuotesLabel() {
-        let label = UILabel()
-        label.backgroundColor = .white
-        label.textAlignment = .center
-        label.text = R.string.localizible.quotesEmptyQuotesLabel()
-        viewController?.view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.center.equalToSuperview()
         }
     }
 

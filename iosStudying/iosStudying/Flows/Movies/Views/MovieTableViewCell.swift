@@ -95,6 +95,15 @@ class MovieTableViewCell: UITableViewCell {
         return label
     }()
 
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .leading
+        stackView.spacing = Constants.edgeInset
+        return stackView
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
@@ -115,47 +124,30 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     private func addSubviews() {
-        contentView.addSubview(runtimeLabel)
-        contentView.addSubview(runtimeTitleLabel)
-        contentView.addSubview(budgetLabel)
-        contentView.addSubview(budgetTitleLabel)
-        contentView.addSubview(revenueLabel)
-        contentView.addSubview(revenueTitleLabel)
-        contentView.addSubview(awardNominationsLabel)
-        contentView.addSubview(awardNominationsTitleLabel)
-        contentView.addSubview(awardWinsLabel)
-        contentView.addSubview(awardWinsTitleLabel)
-        contentView.addSubview(scoreLabel)
-        contentView.addSubview(scoreTitleLabel)
+        let array = [[runtimeLabel, budgetLabel, revenueLabel, awardNominationsLabel, awardWinsLabel, scoreLabel], [runtimeTitleLabel, budgetTitleLabel, revenueTitleLabel, awardNominationsTitleLabel, awardWinsTitleLabel, scoreTitleLabel]]
+
+        fillStackView(from: array)
+        contentView.addSubview(stackView)
     }
 
     private func addConstraints() {
-
-        let firstLabelsArray = [runtimeLabel, budgetLabel, revenueLabel, awardNominationsLabel, awardWinsLabel, scoreLabel]
-        let secondLabelsArray = [runtimeTitleLabel, budgetTitleLabel, revenueTitleLabel, awardNominationsTitleLabel, awardWinsTitleLabel, scoreTitleLabel]
-
-        runtimeLabel.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().inset(Constants.edgeInset)
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(Constants.edgeInset)
         }
+    }
 
-        runtimeTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(Constants.edgeInset)
-            $0.leading.equalTo(runtimeLabel.snp.trailing).offset(Constants.edgeInset)
-        }
+    private func fillStackView(from array: [[UILabel]]) {
+        let horiizontalStackView = UIStackView()
+        horiizontalStackView.axis = .horizontal
+        horiizontalStackView.spacing = Constants.edgeInset
+        horiizontalStackView.addArrangedSubview(array.first!.first!)
+        horiizontalStackView.addArrangedSubview(array.last!.first!)
+        stackView.addArrangedSubview(horiizontalStackView)
 
-        for index in 1..<firstLabelsArray.count {
-            firstLabelsArray[index].snp.makeConstraints {
-                $0.top.equalTo(firstLabelsArray[index - 1].snp.bottom).offset(Constants.edgeInset)
-                $0.leading.equalToSuperview().inset(Constants.edgeInset)
-            }
-            secondLabelsArray[index].snp.makeConstraints {
-                $0.centerY.equalTo(firstLabelsArray[index].snp.centerY)
-                $0.leading.equalTo(firstLabelsArray[index].snp.trailing).offset(Constants.edgeInset)
-            }
-        }
-
-        scoreLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(Constants.edgeInset)
+        let newArray = array.map { Array($0.dropFirst()) }
+        guard let firstArray = newArray.first else { return }
+        if !firstArray.isEmpty {
+            fillStackView(from: newArray)
         }
     }
 }

@@ -53,6 +53,18 @@ class QuotesViewController: UIViewController {
         presenter?.loadNext()
         tableView.refreshControl?.endRefreshing()
     }
+
+    func showEmptyQuotesLabel() {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.textAlignment = .center
+        label.text = R.string.localizible.quotesEmptyQuotesLabel()
+        view.addSubview(label)
+        label.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.center.equalToSuperview()
+        }
+    }
 }
 
 extension QuotesViewController: UITableViewDataSource {
