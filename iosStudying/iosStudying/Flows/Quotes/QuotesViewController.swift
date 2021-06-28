@@ -16,6 +16,7 @@ enum Constants {
 class QuotesViewController: UIViewController {
 
     var presenter: QuotesPresenter?
+    var bookID: String?
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()

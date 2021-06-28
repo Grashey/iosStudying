@@ -15,7 +15,13 @@ class QuoteService {
         self.httpClient = httpClient
     }
 
-    func fetchQuotes(parameters: PaginationParameters, completion: @escaping (Result<QuoteResponse, Error>) -> Void) {
-        httpClient.request(for: QuoteRoute.quotes(parameters: parameters), completion: completion)
+    func fetchQuotes(bookID: String? = nil, parameters: PaginationParameters, completion: @escaping (Result<QuoteResponse, Error>) -> Void) {
+        var route: QuoteRoute
+        if let bookID = bookID {
+            route = QuoteRoute.movieQuotes(identifier: bookID, parameters: parameters)
+        } else {
+            route = QuoteRoute.quotes(parameters: parameters)
+        }
+        httpClient.request(for: route, completion: completion)
     }
 }

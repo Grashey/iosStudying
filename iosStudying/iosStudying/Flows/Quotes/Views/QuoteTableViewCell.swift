@@ -105,6 +105,7 @@ class QuoteTableViewCell: UITableViewCell {
         quoteLabel.snp.makeConstraints {
             $0.left.equalToSuperview().inset(Constants.edgeInset)
             $0.top.equalTo(movieLabel.snp.bottom).offset(Constants.edgeInset)
+            $0.bottom.equalToSuperview().inset(Constants.edgeInset)
         }
 
         quoteTitleLabel.snp.makeConstraints {

@@ -17,19 +17,6 @@ class MovieTableViewCell: UITableViewCell {
     let boldFont = UIFont.boldSystemFont(ofSize: 16)
     let regularFont = UIFont.systemFont(ofSize: 14)
 
-    lazy var nameLabel: UILabel = {
-       let label = UILabel()
-        label.text = R.string.localizible.movieViewCellNameLabel()
-        label.font = regularFont
-        return label
-    }()
-
-    lazy var nameTitleLabel: UILabel = {
-       let label = UILabel()
-        label.font = boldFont
-        return label
-    }()
-
     lazy var runtimeLabel: UILabel = {
        let label = UILabel()
         label.text = R.string.localizible.movieViewCellRuntimeLabel()
@@ -119,7 +106,6 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     func configure(with model: MovieDoc) {
-        nameTitleLabel.text = model.name
         runtimeTitleLabel.text = String(model.runtimeInMinutes)
         budgetTitleLabel.text = String(model.budgetInMillions)
         revenueTitleLabel.text = String(model.boxOfficeRevenueInMillions)
@@ -129,8 +115,6 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     private func addSubviews() {
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(nameTitleLabel)
         contentView.addSubview(runtimeLabel)
         contentView.addSubview(runtimeTitleLabel)
         contentView.addSubview(budgetLabel)
@@ -147,16 +131,16 @@ class MovieTableViewCell: UITableViewCell {
 
     private func addConstraints() {
 
-        let firstLabelsArray = [nameLabel, runtimeLabel, budgetLabel, revenueLabel, awardNominationsLabel, awardWinsLabel, scoreLabel]
-        let secondLabelsArray = [nameTitleLabel, runtimeTitleLabel, budgetTitleLabel, revenueTitleLabel, awardNominationsTitleLabel, awardWinsTitleLabel, scoreTitleLabel]
+        let firstLabelsArray = [runtimeLabel, budgetLabel, revenueLabel, awardNominationsLabel, awardWinsLabel, scoreLabel]
+        let secondLabelsArray = [runtimeTitleLabel, budgetTitleLabel, revenueTitleLabel, awardNominationsTitleLabel, awardWinsTitleLabel, scoreTitleLabel]
 
-        nameLabel.snp.makeConstraints {
+        runtimeLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(Constants.edgeInset)
         }
 
-        nameTitleLabel.snp.makeConstraints {
+        runtimeTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(Constants.edgeInset)
-            $0.leading.equalTo(nameLabel.snp.trailing).offset(Constants.edgeInset)
+            $0.leading.equalTo(runtimeLabel.snp.trailing).offset(Constants.edgeInset)
         }
 
         for index in 1..<firstLabelsArray.count {

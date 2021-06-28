@@ -23,12 +23,15 @@ class QuotesPresenter {
     func loadNext() {
         if !isLoading {
             isLoading = true
-            service?.fetchQuotes(parameters: PaginationParameters(limit: Constants.resultsLimit, offset: offset)) { [weak self] response in
+            service?.fetchQuotes(bookID: viewController?.bookID, parameters: PaginationParameters(limit: Constants.resultsLimit, offset: offset)) { [weak self] response in
                 guard let self = self else { return }
                 switch response {
                 case .success(let data):
                     self.offset += Constants.resultsLimit
                     self.quotes.append(contentsOf: data.docs)
+                    if self.quotes.isEmpty {
+                        self.showEmptyQuotesLabel()
+                    }
                     self.viewController?.reloadData()
                 case .failure(let error):
                     print(error)
@@ -37,6 +40,18 @@ class QuotesPresenter {
             }
         } else {
             return
+        }
+    }
+
+    func showEmptyQuotesLabel() {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.textAlignment = .center
+        label.text = R.string.localizible.quotesEmptyQuotesLabel()
+        viewController?.view.addSubview(label)
+        label.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.center.equalToSuperview()
         }
     }
 
