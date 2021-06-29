@@ -17,6 +17,13 @@ class MovieTableViewCell: UITableViewCell {
     let boldFont = UIFont.boldSystemFont(ofSize: 16)
     let regularFont = UIFont.systemFont(ofSize: 14)
 
+    lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .lightGray
+        label.font = boldFont
+        return label
+    }()
+
     lazy var runtimeLabel: UILabel = {
        let label = UILabel()
         label.text = R.string.localizible.movieViewCellRuntimeLabel()
@@ -104,6 +111,14 @@ class MovieTableViewCell: UITableViewCell {
         return stackView
     }()
 
+    lazy var quotesButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(R.string.localizible.movieViewCellShowQuotesTitle(), for: .normal)
+        button.titleLabel?.font = UIFont.italicSystemFont(ofSize: 14)
+        button.setTitleColor(.systemBlue, for: .normal)
+        return button
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
@@ -115,6 +130,7 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     func configure(with model: MovieInfoViewModel) {
+        nameLabel.text = model.name
         runtimeTitleLabel.text = String(model.runtime)
         budgetTitleLabel.text = String(model.budget)
         revenueTitleLabel.text = String(model.revenue)
@@ -124,6 +140,9 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     private func addSubviews() {
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(quotesButton)
+
         let array = [[runtimeLabel, budgetLabel, revenueLabel, awardNominationsLabel, awardWinsLabel, scoreLabel], [runtimeTitleLabel, budgetTitleLabel, revenueTitleLabel, awardNominationsTitleLabel, awardWinsTitleLabel, scoreTitleLabel]]
 
         fillStackView(from: array)
@@ -131,8 +150,19 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     private func addConstraints() {
+        nameLabel.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview().inset(Constants.edgeInset)
+        }
+
         stackView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(Constants.edgeInset)
+            $0.top.equalTo(nameLabel.snp.bottom).offset(Constants.edgeInset)
+            $0.leading.trailing.equalToSuperview().inset(Constants.edgeInset)
+        }
+
+        quotesButton.snp.makeConstraints {
+            $0.top.equalTo(stackView.snp.bottom).offset(Constants.edgeInset)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(Constants.edgeInset)
         }
     }
 

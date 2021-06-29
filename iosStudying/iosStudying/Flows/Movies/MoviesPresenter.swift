@@ -13,7 +13,6 @@ class MoviesPresenter {
 
     let service = MovieService()
     private var movies: [MovieDoc] = []
-    var headerViewModels: [MovieHeaderViewModel] = []
     var infoViewModels: [MovieInfoViewModel] = []
 
     func getData() {
@@ -21,8 +20,8 @@ class MoviesPresenter {
             switch result {
             case .success(let data):
                 self.movies = data.docs
-                self.headerViewModels = self.movies.map { MovieHeaderViewModel(name: $0.name) }
-                self.infoViewModels = self.movies.map { MovieInfoViewModel(runtime: $0.runtimeInMinutes,
+                self.infoViewModels = self.movies.map { MovieInfoViewModel(name: $0.name,
+                                                                           runtime: $0.runtimeInMinutes,
                                                                            budget: $0.budgetInMillions,
                                                                            awardNominations: $0.academyAwardNominations,
                                                                            awardWins: $0.academyAwardWINS,
@@ -39,4 +38,6 @@ class MoviesPresenter {
     func getBookID(index: Int) -> String {
         return movies[index].identifier
     }
+
+
 }
