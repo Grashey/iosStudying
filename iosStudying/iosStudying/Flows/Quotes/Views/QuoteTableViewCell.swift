@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-struct QuoteCellViewModel {
+struct QuoteViewModel {
     let text: String
-    let isFavorite: Bool
+    var isFavorite: Bool
     let movieName: String
 }
 
@@ -72,7 +72,7 @@ class QuoteTableViewCell: UITableViewCell {
         favoriteView.isHidden = true
     }
 
-    func configure(with model: QuoteCellViewModel) {
+    func configure(with model: QuoteViewModel) {
         quoteTitleLabel.text = model.text.trimmingCharacters(in: .whitespaces)
         favoriteView.isHidden = !model.isFavorite
         movieTitleLabel.text = model.movieName

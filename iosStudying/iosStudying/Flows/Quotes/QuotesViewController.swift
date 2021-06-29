@@ -44,19 +44,18 @@ class QuotesViewController: UIViewController {
 
     func reloadData() {
         tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
     }
 
     @objc func refreshQuotes(_ sender: Any) {
-        presenter?.offset = .zero
-        presenter?.quotes.removeAll()
+        presenter?.removeAll()
         reloadData()
         presenter?.loadNext()
-        tableView.refreshControl?.endRefreshing()
     }
 
     func showEmptyQuotesLabel() {
         let label = UILabel()
-        label.backgroundColor = .white
+        label.backgroundColor = view.backgroundColor
         label.textAlignment = .center
         label.text = R.string.localizible.quotesEmptyQuotesLabel()
         view.addSubview(label)
@@ -70,29 +69,27 @@ class QuotesViewController: UIViewController {
 extension QuotesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter?.quotes.count ?? .zero
+        presenter?.viewModels.count ?? .zero
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.description(), for: indexPath) as? QuoteTableViewCell else { return UITableViewCell() }
-        if let model = presenter?.makeQuotesViewCellModelForIndex(index: indexPath.row) {
+        if let model = presenter?.viewModels[indexPath.row] {
             cell.configure(with: model)
         }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let quote = presenter?.quotes[indexPath.row] {
-            presenter?.operateFavorite(identifier: quote.identifier)
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        }
+        presenter?.operateFavorite(index: indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
 extension QuotesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let count = presenter?.quotes.count ?? .zero
+        let count = presenter?.viewModels.count ?? .zero
         if count - Constants.indexInset < indexPath.row {
             presenter?.loadNext()
         }

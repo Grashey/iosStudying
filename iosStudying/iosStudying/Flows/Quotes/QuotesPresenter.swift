@@ -15,7 +15,8 @@ class QuotesPresenter {
 
     var service: QuoteService? = QuoteService()
     var offset = Int.zero
-    var quotes: [QuoteDoc] = []
+    private var quotes: [QuoteDoc] = []
+    var viewModels: [QuoteViewModel] = []
     weak var viewController: QuotesViewController?
     var isLoading = false
     let dataLoader = DataLoader<String>()
@@ -29,6 +30,18 @@ class QuotesPresenter {
                 case .success(let data):
                     self.offset += Constants.resultsLimit
                     self.quotes.append(contentsOf: data.docs)
+
+                    self.viewModels = self.quotes.map { quote in
+                        let isFavorite: Bool = {
+                            if self.dataLoader.load(key: quote.identifier) != nil {
+                                return true
+                            } else {
+                                return false
+                            }
+                        }()
+                        return QuoteViewModel.init(text: quote.dialog, isFavorite: isFavorite, movieName: quote.movie)
+                    }
+
                     if self.quotes.isEmpty {
                         self.viewController?.showEmptyQuotesLabel()
                     }
@@ -43,23 +56,18 @@ class QuotesPresenter {
         }
     }
 
-    func operateFavorite(identifier: String) {
-        if dataLoader.load(key: identifier) != nil {
-            dataLoader.remove(key: identifier)
+    func operateFavorite(index: Int) {
+        if dataLoader.load(key: quotes[index].identifier) != nil {
+            dataLoader.remove(key: quotes[index].identifier)
         } else {
-            dataLoader.save(value: identifier, key: identifier)
+            dataLoader.save(value: quotes[index].identifier, key: quotes[index].identifier)
         }
+        viewModels[index].isFavorite.toggle()
     }
 
-    func makeQuotesViewCellModelForIndex(index: Int) -> QuoteCellViewModel {
-        let model = quotes[index]
-        let isFavorite: Bool = {
-            if dataLoader.load(key: model.identifier) != nil {
-                return true
-            } else {
-                return false
-            }
-        }()
-        return .init(text: model.dialog, isFavorite: isFavorite, movieName: model.movie)
+    func removeAll() {
+        offset = .zero
+        quotes.removeAll()
+        viewModels.removeAll()
     }
 }
