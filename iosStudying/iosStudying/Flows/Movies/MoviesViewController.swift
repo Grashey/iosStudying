@@ -12,6 +12,15 @@ enum MovieCells: Int, CaseIterable {
     case quotes
 }
 
+struct MovieHeaderViewModel {
+    let name: String
+}
+
+struct MovieInfoViewModel {
+    let runtime, budget, awardNominations, awardWins: Int
+    let revenue, score: Double
+}
+
 class MoviesViewController: UIViewController {
 
     var presenter: MoviesPresenter?
@@ -46,7 +55,7 @@ extension MoviesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if indexPath.row == MovieCells.quotes.rawValue, let movieID = presenter?.movies[indexPath.section].identifier {
+        if indexPath.row == MovieCells.quotes.rawValue, let movieID = presenter?.getBookID(index: indexPath.section) {
             onQuotes?(movieID)
         }
     }
@@ -55,11 +64,11 @@ extension MoviesViewController: UITableViewDelegate {
 extension MoviesViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        presenter?.movies.count ?? .zero
+        presenter?.headerViewModels.count ?? .zero
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return presenter?.movies[section].name
+        return presenter?.headerViewModels[section].name
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,7 +78,7 @@ extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == MovieCells.info.rawValue {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
-            if let movie = presenter?.movies[indexPath.section] {
+            if let movie = presenter?.infoViewModels[indexPath.section] {
                 cell.configure(with: movie)
                 cell.isUserInteractionEnabled = false
             }

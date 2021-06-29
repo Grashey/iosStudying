@@ -114,13 +114,13 @@ class MovieTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with model: MovieDoc) {
-        runtimeTitleLabel.text = String(model.runtimeInMinutes)
-        budgetTitleLabel.text = String(model.budgetInMillions)
-        revenueTitleLabel.text = String(model.boxOfficeRevenueInMillions)
-        awardNominationsTitleLabel.text = String(model.academyAwardNominations)
-        awardWinsTitleLabel.text = String(model.academyAwardWINS)
-        scoreTitleLabel.text = String(model.rottenTomatoesScore)
+    func configure(with model: MovieInfoViewModel) {
+        runtimeTitleLabel.text = String(model.runtime)
+        budgetTitleLabel.text = String(model.budget)
+        revenueTitleLabel.text = String(model.revenue)
+        awardNominationsTitleLabel.text = String(model.awardNominations)
+        awardWinsTitleLabel.text = String(model.awardWins)
+        scoreTitleLabel.text = String(model.score)
     }
 
     private func addSubviews() {

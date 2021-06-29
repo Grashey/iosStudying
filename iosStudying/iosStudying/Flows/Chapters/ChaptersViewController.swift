@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct ChaptersViewModel {
+    let name: String
+}
+
 class ChaptersViewController: UIViewController {
 
     var bookID: String
@@ -39,13 +43,13 @@ class ChaptersViewController: UIViewController {
 
 extension ChaptersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.chapters?.docs.count ?? 0
+        return presenter?.viewModels.count ?? .zero
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()),
-              let chapters = presenter?.chapters else { return UITableViewCell() }
-        cell.textLabel?.text = "\(indexPath.row + 1). " + chapters.docs[indexPath.row].chapterName
+              let chapters = presenter?.viewModels else { return UITableViewCell() }
+        cell.textLabel?.text = "\(indexPath.row + 1). " + chapters[indexPath.row].name
         return cell
     }
 }

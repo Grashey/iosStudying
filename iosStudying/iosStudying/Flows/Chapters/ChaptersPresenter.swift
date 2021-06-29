@@ -11,7 +11,8 @@ class ChaptersPresenter {
 
     weak var viewController: ChaptersViewController?
 
-    var chapters: ChapterResponse?
+    private var chapters: [Chapter] = []
+    var viewModels: [ChaptersViewModel] = []
     let service = BookService()
 
     func getData() {
@@ -19,7 +20,8 @@ class ChaptersPresenter {
         service.fetchChapters(bookID: bookID) { result in
             switch result {
             case .success(let chapters):
-                self.chapters = chapters
+                self.chapters = chapters.docs
+                self.viewModels = self.chapters.map { ChaptersViewModel(name: $0.chapterName) }
                 self.viewController?.tableView.reloadData()
             case .failure(let error):
                 print(error)

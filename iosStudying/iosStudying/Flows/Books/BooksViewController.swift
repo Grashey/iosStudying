@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct BooksViewModel {
+    let name: String
+}
+
 class BooksViewController: UIViewController {
 
     var presenter: BooksPresenter?
@@ -44,13 +48,13 @@ class BooksViewController: UIViewController {
 
 extension BooksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.books?.docs.count ?? 0
+        return presenter?.viewModels.count ?? .zero
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()),
-              let book = presenter?.books else { return UITableViewCell() }
-        cell.textLabel?.text = book.docs[indexPath.row].name
+              let books = presenter?.viewModels else { return UITableViewCell() }
+        cell.textLabel?.text = books[indexPath.row].name
         return cell
     }
 }
@@ -58,8 +62,8 @@ extension BooksViewController: UITableViewDataSource {
 extension BooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let book  = presenter?.books?.docs[indexPath.row] {
-            onChapters?(book.identifier, book.name)
+        if let book  = presenter?.viewModels[indexPath.row], let bookID = presenter?.getBookIDForChapters(index: indexPath.row) {
+            onChapters?(bookID, book.name)
         }
     }
 }
