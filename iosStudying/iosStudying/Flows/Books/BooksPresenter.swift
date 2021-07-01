@@ -5,21 +5,30 @@
 //  Created by Aleksandr Fetisov on 24.06.2021.
 //
 
-import Foundation
+import UIKit
 
 class BooksPresenter {
 
     weak var viewController: BooksViewController?
     private var books: [Doc] = []
-    var viewModels: [BooksViewModel] = []
+    var booksViewModels: [BooksViewModel] = []
+    var imagesViewModels: [ImageViewModel] = []
+    var viewModel: BooksViewControllerViewModel?
     let service = BookService()
+
+    // MARK: Temporary data
+    let picsArray = [UIImage(named: "Tweety"),
+                    UIImage(named: "BugsBunny"),
+                    UIImage(named: "RoadRunner")]
 
     func getData() {
         service.fetchBooks { result in
             switch result {
             case .success(let books):
                 self.books = books.docs
-                self.viewModels = self.books.map { BooksViewModel(name: $0.name) }
+                self.booksViewModels = self.books.map { BooksViewModel(name: $0.name) }
+                self.imagesViewModels = self.picsArray.map { ImageViewModel(image: $0 ?? UIImage()) }
+                self.viewModel = BooksViewControllerViewModel(sections: [.books(self.booksViewModels), .images(self.imagesViewModels)])
                 self.viewController?.tableView.reloadData()
             case .failure(let error):
                 print(error)

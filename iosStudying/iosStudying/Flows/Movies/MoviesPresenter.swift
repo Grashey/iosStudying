@@ -5,7 +5,7 @@
 //  Created by Aleksandr Fetisov on 24.06.2021.
 //
 
-import Foundation
+import UIKit
 
 class MoviesPresenter {
 
@@ -38,6 +38,4 @@ class MoviesPresenter {
     func getBookID(index: Int) -> String {
         return movies[index].identifier
     }
-
-
 }

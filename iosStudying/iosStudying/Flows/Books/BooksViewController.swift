@@ -11,6 +11,22 @@ struct BooksViewModel {
     let name: String
 }
 
+struct ImageViewModel {
+    let image: UIImage
+}
+
+struct MusicViewModel {
+    let genre: String
+}
+
+struct BooksViewControllerViewModel {
+    enum Cells {
+        case books([BooksViewModel])
+        case images([ImageViewModel])
+    }
+    let sections: [Cells]
+}
+
 class BooksViewController: UIViewController {
 
     var presenter: BooksPresenter?
@@ -19,7 +35,8 @@ class BooksViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
+        tableView.register(BooksTableViewCell.self, forCellReuseIdentifier: BooksTableViewCell.description())
+        tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: ImageTableViewCell.description())
         return tableView
     }()
 
@@ -47,23 +64,50 @@ class BooksViewController: UIViewController {
 }
 
 extension BooksViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return presenter?.viewModel?.sections.count ?? .zero
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.viewModels.count ?? .zero
+        switch presenter?.viewModel?.sections[section] {
+        case let .books(books): return books.count
+        case let .images(images): return images.count
+        case .none: return .zero
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description()),
-              let books = presenter?.viewModels else { return UITableViewCell() }
-        cell.textLabel?.text = books[indexPath.row].name
-        return cell
+        switch presenter?.viewModel?.sections[indexPath.section] {
+        case let .books(books):
+            let model = books[indexPath.row]
+            if let cell = tableView.dequeueReusableCell(withIdentifier: BooksTableViewCell.description()) as? BooksTableViewCell {
+                cell.configure(with: model)
+                return cell
+            }
+        case let .images(images):
+            let model = images[indexPath.row]
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.description()) as? ImageTableViewCell {
+                cell.configure(with: model)
+                return cell
+            }
+        case .none: break
+        }
+        return UITableViewCell()
     }
 }
 
 extension BooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let book  = presenter?.viewModels[indexPath.row], let bookID = presenter?.getBookIDForChapters(index: indexPath.row) {
-            onChapters?(bookID, book.name)
+        switch presenter?.viewModel?.sections[indexPath.section] {
+        case let .books(books):
+            if let bookID = presenter?.getBookIDForChapters(index: indexPath.row) {
+                let book  = books[indexPath.row]
+                onChapters?(bookID, book.name)
+            }
+        case .images: break
+        case .none: break
         }
     }
 }

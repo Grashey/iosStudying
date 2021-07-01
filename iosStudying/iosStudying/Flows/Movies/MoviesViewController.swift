@@ -55,11 +55,11 @@ extension MoviesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.description(), for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
-        if let movie = presenter?.infoViewModels[indexPath.section] {
+        if let movie = presenter?.infoViewModels[indexPath.row] {
             cell.configure(with: movie)
-            cell.quotesButton.tag = indexPath.row
-            cell.quotesButton.addTarget(self, action: #selector(showQuotes(sender:)), for: .touchUpInside)
         }
+        cell.quotesButton.tag = indexPath.row
+        cell.quotesButton.addTarget(self, action: #selector(showQuotes(sender:)), for: .touchUpInside)
         return cell
     }
 }
