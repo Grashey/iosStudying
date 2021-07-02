@@ -29,7 +29,7 @@ struct BooksViewControllerViewModel {
 
 class BooksViewController: UIViewController {
 
-    var presenter: BooksPresenter?
+    var presenter: BooksPresenterProtocol?
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -51,15 +51,16 @@ class BooksViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = R.string.localizible.booksViewControllerTitle()
-        configureExitButton()
-        presenter?.getData()
-    }
-
-    func configureExitButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localizible.logoutButtonTitle(),
                                                                 style: .plain,
                                                                 target: self,
-                                                                action: #selector(presenter?.finishFlow))
+                                                                action: #selector(logoutButtonTapped))
+
+        presenter?.getData()
+    }
+
+    @objc func logoutButtonTapped() {
+        presenter?.finishFlow()
     }
 }
 
@@ -98,6 +99,7 @@ extension BooksViewController: UITableViewDataSource {
 }
 
 extension BooksViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch presenter?.viewModel?.sections[indexPath.section] {

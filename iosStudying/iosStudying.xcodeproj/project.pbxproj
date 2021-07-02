@@ -46,6 +46,8 @@
 		4A6E019126702314001E5D73 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E019026702314001E5D73 /* QuoteTableViewCell.swift */; };
 		4A6F611F268C9CE200B10A3A /* BooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F611E268C9CE200B10A3A /* BooksTableViewCell.swift */; };
 		4A6F6121268CB39400B10A3A /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F6120268CB39400B10A3A /* ImageTableViewCell.swift */; };
+		4A6F6135268E190900B10A3A /* BooksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F6134268E190900B10A3A /* BooksViewControllerTests.swift */; };
+		4A6F6138268F422E00B10A3A /* BooksPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F6137268F422D00B10A3A /* BooksPresenterMock.swift */; };
 		4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F792667F1F20055B34F /* HTTPClient.swift */; };
 		4A779F7C2667F32E0055B34F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7B2667F32E0055B34F /* Route.swift */; };
 		4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7D2667F6EE0055B34F /* BooksRoute.swift */; };
@@ -60,6 +62,16 @@
 		4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B844026656B0600680E62 /* BooksViewController.swift */; };
 		858E18028E99AC3818500601 /* Pods_iosStudying.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C33F451D1919B55B018868B /* Pods_iosStudying.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A6F612D268E0D8B00B10A3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A8B841F2665630400680E62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A8B84262665630400680E62;
+			remoteInfo = iosStudying;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2545A4DC13E40151EABF16B2 /* Pods-iosStudying.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosStudying.debug.xcconfig"; path = "Target Support Files/Pods-iosStudying/Pods-iosStudying.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +114,10 @@
 		4A6E019026702314001E5D73 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		4A6F611E268C9CE200B10A3A /* BooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewCell.swift; sourceTree = "<group>"; };
 		4A6F6120268CB39400B10A3A /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		4A6F6128268E0D8B00B10A3A /* iosStudyingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosStudyingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A6F612C268E0D8B00B10A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A6F6134268E190900B10A3A /* BooksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewControllerTests.swift; sourceTree = "<group>"; };
+		4A6F6137268F422D00B10A3A /* BooksPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksPresenterMock.swift; sourceTree = "<group>"; };
 		4A779F792667F1F20055B34F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4A779F7B2667F32E0055B34F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4A779F7D2667F6EE0055B34F /* BooksRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRoute.swift; sourceTree = "<group>"; };
@@ -121,6 +137,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A6F6125268E0D8B00B10A3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A8B84242665630400680E62 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,6 +305,40 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4A6F6129268E0D8B00B10A3A /* iosStudyingTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A6F6132268E18D600B10A3A /* Flows */,
+				4A6F612C268E0D8B00B10A3A /* Info.plist */,
+			);
+			path = iosStudyingTests;
+			sourceTree = "<group>";
+		};
+		4A6F6132268E18D600B10A3A /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				4A6F6136268F421700B10A3A /* Mock */,
+				4A6F6133268E18E200B10A3A /* Books */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		4A6F6133268E18E200B10A3A /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				4A6F6134268E190900B10A3A /* BooksViewControllerTests.swift */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
+		4A6F6136268F421700B10A3A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				4A6F6137268F422D00B10A3A /* BooksPresenterMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		4A779F772667F1CF0055B34F /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				4A8B84292665630400680E62 /* iosStudying */,
+				4A6F6129268E0D8B00B10A3A /* iosStudyingTests */,
 				4A8B84282665630400680E62 /* Products */,
 				41C89DEE5104C02D89F3A4A5 /* Pods */,
 				A3B05CDC655860CAC56BDB00 /* Frameworks */,
@@ -354,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				4A8B84272665630400680E62 /* iosStudying.app */,
+				4A6F6128268E0D8B00B10A3A /* iosStudyingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -421,6 +480,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4A6F6127268E0D8B00B10A3A /* iosStudyingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A6F612F268E0D8B00B10A3A /* Build configuration list for PBXNativeTarget "iosStudyingTests" */;
+			buildPhases = (
+				4A6F6124268E0D8B00B10A3A /* Sources */,
+				4A6F6125268E0D8B00B10A3A /* Frameworks */,
+				4A6F6126268E0D8B00B10A3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A6F612E268E0D8B00B10A3A /* PBXTargetDependency */,
+			);
+			name = iosStudyingTests;
+			productName = iosStudyingTests;
+			productReference = 4A6F6128268E0D8B00B10A3A /* iosStudyingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4A8B84262665630400680E62 /* iosStudying */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A8B843B2665630500680E62 /* Build configuration list for PBXNativeTarget "iosStudying" */;
@@ -451,6 +528,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					4A6F6127268E0D8B00B10A3A = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 4A8B84262665630400680E62;
+					};
 					4A8B84262665630400680E62 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -470,11 +551,19 @@
 			projectRoot = "";
 			targets = (
 				4A8B84262665630400680E62 /* iosStudying */,
+				4A6F6127268E0D8B00B10A3A /* iosStudyingTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A6F6126268E0D8B00B10A3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A8B84252665630400680E62 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -569,6 +658,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A6F6124268E0D8B00B10A3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A6F6135268E190900B10A3A /* BooksViewControllerTests.swift in Sources */,
+				4A6F6138268F422E00B10A3A /* BooksPresenterMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A8B84232665630400680E62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,6 +724,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4A6F612E268E0D8B00B10A3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A8B84262665630400680E62 /* iosStudying */;
+			targetProxy = 4A6F612D268E0D8B00B10A3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		4A8B84352665630500680E62 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -638,6 +744,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4A6F6130268E0D8B00B10A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77NB29ZK26;
+				INFOPLIST_FILE = iosStudyingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.IosStudying.iosStudyingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosStudying.app/iosStudying";
+			};
+			name = Debug;
+		};
+		4A6F6131268E0D8B00B10A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77NB29ZK26;
+				INFOPLIST_FILE = iosStudyingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.IosStudying.iosStudyingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosStudying.app/iosStudying";
+			};
+			name = Release;
+		};
 		4A8B84392665630500680E62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -801,6 +947,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A6F612F268E0D8B00B10A3A /* Build configuration list for PBXNativeTarget "iosStudyingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A6F6130268E0D8B00B10A3A /* Debug */,
+				4A6F6131268E0D8B00B10A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4A8B84222665630400680E62 /* Build configuration list for PBXProject "iosStudying" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

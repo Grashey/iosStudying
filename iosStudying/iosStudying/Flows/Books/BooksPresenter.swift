@@ -7,7 +7,16 @@
 
 import UIKit
 
-class BooksPresenter {
+protocol BooksPresenterProtocol {
+
+    var viewModel: BooksViewControllerViewModel? { get set }
+
+    func getData()
+    func finishFlow()
+    func getBookIDForChapters(index: Int) -> String
+}
+
+class BooksPresenter: BooksPresenterProtocol {
 
     weak var viewController: BooksViewController?
     private var books: [Doc] = []
@@ -36,7 +45,7 @@ class BooksPresenter {
         }
     }
 
-    @objc func finishFlow() {
+    func finishFlow() {
         UserDefaults.standard.set(false, forKey: PublicConstants.authKey)
         viewController?.onFinishFlow?()
     }
