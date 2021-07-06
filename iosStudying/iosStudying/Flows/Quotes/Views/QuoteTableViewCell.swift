@@ -1,5 +1,5 @@
 //
-//  QuotesTableViewCell.swift
+//  QuoteTableViewCell.swift
 //  iosStudying
 //
 //  Created by Aleksandr Fetisov on 09.06.2021.
@@ -8,13 +8,13 @@
 import UIKit
 import SnapKit
 
-struct QuotesCellViewModel {
+struct QuoteViewModel {
     let text: String
-    let isFavorite: Bool
+    var isFavorite: Bool
     let movieName: String
 }
 
-class QuotesTableViewCell: UITableViewCell {
+class QuoteTableViewCell: UITableViewCell {
 
     enum Constants {
         static let edgeInset: CGFloat = 10
@@ -72,7 +72,7 @@ class QuotesTableViewCell: UITableViewCell {
         favoriteView.isHidden = true
     }
 
-    func configure(with model: QuotesCellViewModel) {
+    func configure(with model: QuoteViewModel) {
         quoteTitleLabel.text = model.text.trimmingCharacters(in: .whitespaces)
         favoriteView.isHidden = !model.isFavorite
         movieTitleLabel.text = model.movieName
@@ -105,6 +105,7 @@ class QuotesTableViewCell: UITableViewCell {
         quoteLabel.snp.makeConstraints {
             $0.left.equalToSuperview().inset(Constants.edgeInset)
             $0.top.equalTo(movieLabel.snp.bottom).offset(Constants.edgeInset)
+            $0.bottom.equalToSuperview().inset(Constants.edgeInset)
         }
 
         quoteTitleLabel.snp.makeConstraints {

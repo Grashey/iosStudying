@@ -7,33 +7,46 @@
 
 import UIKit
 
+private enum Flows: Int {
+    case books
+    case movies
+    case quotes
+}
+
 class TabBarController: UITabBarController {
+
+    var onBooks: (() -> Void)?
+    var onMovies: (() -> Void)?
+    var onQuotes: (() -> Void)?
+
+    let booksNavigation = UINavigationController()
+    let moviesNavigation = UINavigationController()
+    let quotesNavigation = UINavigationController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureContent()
+        delegate = self
+        booksNavigation.tabBarItem = UITabBarItem(title: R.string.localizible.booksViewControllerTitle(), image: nil, selectedImage: nil)
+        moviesNavigation.tabBarItem = UITabBarItem(title: R.string.localizible.moviesViewControllerTitle(), image: nil, selectedImage: nil)
+        quotesNavigation.tabBarItem = UITabBarItem(title: R.string.localizible.quotesViewControllerTitle(), image: nil, selectedImage: nil)
+        viewControllers = [booksNavigation, moviesNavigation, quotesNavigation]
     }
 
-    private func configureContent() {
+    func showBooks() {
+        onBooks?()
+    }
+}
 
-        let booksVC: BooksViewController = {
-            let controller = BooksViewController()
-            controller.title = R.string.localizible.booksViewControllerTitle()
-            return controller
-        }()
+extension TabBarController: UITabBarControllerDelegate {
 
-        let quoteVC: QuotesViewController = {
-            let controller = QuotesViewController()
-            let quotePresenter = QuotesPresenter()
-            controller.presenter = quotePresenter
-            quotePresenter.viewController = controller
-            controller.title = R.string.localizible.quotesViewControllerTitle()
-            return controller
-        }()
-
-        self.viewControllers = [booksVC, quoteVC].map {
-            UINavigationController(rootViewController: $0)
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        viewControllers?.firstIndex(of: viewController).map {
+            switch Flows(rawValue: $0) {
+            case .books: onBooks?()
+            case .movies: onMovies?()
+            case .quotes: onQuotes?()
+            default: break
+            }
         }
-        tabBar.tintColor = #colorLiteral(red: 0, green: 0.7117646337, blue: 0.8480874896, alpha: 1)
     }
 }

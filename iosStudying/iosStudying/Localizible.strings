@@ -13,15 +13,22 @@
 "booksViewControllerTitle" = "Books";
 "quotesViewControllerTitle" = "Quotes";
 "chaptersViewControllerTitle" = "Chapters";
+"moviesViewControllerTitle" = "Movies";
 
 "alertErrorTitle" = "Error";
 "alertActionOkTitle" = "ok";
-
-"isAuthorized" = "isAuthorized";
-"token" = "MsX8LtYHkW7lOaj4Df6T";
 
 "placeholderLogin" = "enter login";
 "placeholderPassword" = "enter password";
 
 "quotesViewCellMovieLabel" = "Movie:";
 "quotesViewCellQuoteLabel" = "Quote:";
+"quotesEmptyQuotesLabel" = "No quotes";
+
+"movieViewCellRuntimeLabel" = "Runtime, minutes:";
+"movieViewCellBudgetLabel" = "Budget, $ millions:";
+"movieViewCellRevenueLabel" = "Revenue, $ millions:";
+"movieViewCellAwardNominationsLabel" = "Academy Award Nominations:";
+"movieViewCellAwardWinsLabel" = "Academy Award Wins:";
+"movieViewCellScoreLabel" = "Rotten Tomatoes Score:";
+"movieViewCellShowQuotesTitle" = "show movie quotes";

@@ -11,9 +11,9 @@ import KeychainSwift
 class LoginViewController: UIViewController {
 
     let loginView = LoginView()
-
     let service = AuthService()
-    let router = AuthNavigationRouter()
+    var onRegistry: (() -> Void)?
+    var onMain: (() -> Void)?
 
     override func loadView() {
         self.view = loginView
@@ -21,8 +21,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        router.controller = self
 
         self.title = R.string.localizible.loginViewControllerTitle()
 
@@ -48,7 +46,7 @@ class LoginViewController: UIViewController {
             case let .success(token):
                 KeychainSwift().set(token, forKey: KeychainSwift.Keys.token.rawValue)
                 DispatchQueue.main.async {
-                    self.router.toMain()
+                    self.onMain?()
                 }
             case let .failure(error):
                 DispatchQueue.main.async {
@@ -60,7 +58,7 @@ class LoginViewController: UIViewController {
 
     @objc func isRegistryButtonPressed() {
         hideKeyboard()
-        router.toRegistry()
+        onRegistry?()
     }
 
     @objc private func hideKeyboard() {
