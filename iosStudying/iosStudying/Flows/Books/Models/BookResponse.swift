@@ -15,7 +15,7 @@ struct BookResponse: Codable {
 }
 
 // MARK: - Doc
-struct Doc: Codable {
+struct Doc: Codable, Equatable {
     let identifier, name: String
 
     enum CodingKeys: String, CodingKey {

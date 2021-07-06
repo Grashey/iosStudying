@@ -11,7 +11,7 @@ class BooksFactory {
 
     func create() -> UIViewController {
         let viewController = BooksViewController()
-        let presenter = BooksPresenter()
+        let presenter = BooksPresenter(service: BookService())
         viewController.presenter = presenter
         presenter.viewController = viewController
         return viewController

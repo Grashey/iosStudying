@@ -48,6 +48,9 @@
 		4A6F6121268CB39400B10A3A /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F6120268CB39400B10A3A /* ImageTableViewCell.swift */; };
 		4A6F6135268E190900B10A3A /* BooksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F6134268E190900B10A3A /* BooksViewControllerTests.swift */; };
 		4A6F6138268F422E00B10A3A /* BooksPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F6137268F422D00B10A3A /* BooksPresenterMock.swift */; };
+		4A6F613A2692EAB200B10A3A /* BooksPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F61392692EAB200B10A3A /* BooksPresenterTests.swift */; };
+		4A6F613C2692ED6B00B10A3A /* BooksViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F613B2692ED6B00B10A3A /* BooksViewControllerMock.swift */; };
+		4A6F613E26932C0200B10A3A /* BookServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F613D26932C0200B10A3A /* BookServiceMock.swift */; };
 		4A779F7A2667F1F20055B34F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F792667F1F20055B34F /* HTTPClient.swift */; };
 		4A779F7C2667F32E0055B34F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7B2667F32E0055B34F /* Route.swift */; };
 		4A779F7E2667F6EE0055B34F /* BooksRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A779F7D2667F6EE0055B34F /* BooksRoute.swift */; };
@@ -118,6 +121,9 @@
 		4A6F612C268E0D8B00B10A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A6F6134268E190900B10A3A /* BooksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewControllerTests.swift; sourceTree = "<group>"; };
 		4A6F6137268F422D00B10A3A /* BooksPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksPresenterMock.swift; sourceTree = "<group>"; };
+		4A6F61392692EAB200B10A3A /* BooksPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksPresenterTests.swift; sourceTree = "<group>"; };
+		4A6F613B2692ED6B00B10A3A /* BooksViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewControllerMock.swift; sourceTree = "<group>"; };
+		4A6F613D26932C0200B10A3A /* BookServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceMock.swift; sourceTree = "<group>"; };
 		4A779F792667F1F20055B34F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4A779F7B2667F32E0055B34F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4A779F7D2667F6EE0055B34F /* BooksRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRoute.swift; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				4A6F6134268E190900B10A3A /* BooksViewControllerTests.swift */,
+				4A6F61392692EAB200B10A3A /* BooksPresenterTests.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -335,6 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				4A6F6137268F422D00B10A3A /* BooksPresenterMock.swift */,
+				4A6F613B2692ED6B00B10A3A /* BooksViewControllerMock.swift */,
+				4A6F613D26932C0200B10A3A /* BookServiceMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -662,8 +671,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6F613A2692EAB200B10A3A /* BooksPresenterTests.swift in Sources */,
 				4A6F6135268E190900B10A3A /* BooksViewControllerTests.swift in Sources */,
 				4A6F6138268F422E00B10A3A /* BooksPresenterMock.swift in Sources */,
+				4A6F613C2692ED6B00B10A3A /* BooksViewControllerMock.swift in Sources */,
+				4A6F613E26932C0200B10A3A /* BookServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
