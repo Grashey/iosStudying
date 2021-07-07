@@ -21,6 +21,12 @@ class BooksPresenterTests: XCTestCase {
         presenter.viewController = viewControllerMock
     }
 
+    override func tearDownWithError() throws {
+        serviceMock = nil
+        viewControllerMock = nil
+        presenter = nil
+    }
+
     func test_getData_success() {
         // given
         serviceMock.stubbedFetchBooksCompletionResult = .success(TestDataSuccess.responseData)
@@ -39,7 +45,7 @@ class BooksPresenterTests: XCTestCase {
     func test_getData_failure() {
         // given
         serviceMock.stubbedFetchBooksCompletionResult = .failure(TestDataFailure.error)
-        
+
         // when
         presenter.getData()
 
@@ -47,13 +53,13 @@ class BooksPresenterTests: XCTestCase {
         print(TestDataFailure.error)   // ????
     }
 
-    func test_finishFlow() {
-        XCTAssertTrue(viewControllerMock.invokedOnFinishFlowGetter)
-    }
-
-    func test_getBookIDForChapters(index: Int) {
-        XCTAssertTrue(presenter.books[index].identifier != nil)
-    }
+//    func test_finishFlow() {
+//        XCTAssertTrue(viewControllerMock.invokedOnFinishFlowGetter)
+//    }
+//
+//    func test_getBookIDForChapters(index: Int) {
+//        XCTAssertTrue(presenter.books[index].identifier != nil)
+//    }
 
 }
 

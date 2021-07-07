@@ -341,9 +341,7 @@
 		4A6F6136268F421700B10A3A /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				4A6F6137268F422D00B10A3A /* BooksPresenterMock.swift */,
-				4A6F613B2692ED6B00B10A3A /* BooksViewControllerMock.swift */,
-				4A6F613D26932C0200B10A3A /* BookServiceMock.swift */,
+				4AEBE2532695F899006D5636 /* Books */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -474,6 +472,16 @@
 				4A6F611D268C9CC000B10A3A /* Views */,
 				4A8B844026656B0600680E62 /* BooksViewController.swift */,
 				4A33447B2684928E00250424 /* BooksPresenter.swift */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
+		4AEBE2532695F899006D5636 /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				4A6F6137268F422D00B10A3A /* BooksPresenterMock.swift */,
+				4A6F613B2692ED6B00B10A3A /* BooksViewControllerMock.swift */,
+				4A6F613D26932C0200B10A3A /* BookServiceMock.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";

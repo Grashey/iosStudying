@@ -20,20 +20,25 @@ class BooksViewControllerTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        presenterMock = nil
+        viewController = nil
     }
 
     func test_tableView() {
         // when
-        let table = viewController.tableView
+        let tableView = viewController.tableView
 
         // then
-        XCTAssertTrue(viewController === table.dataSource)
-        XCTAssertTrue(viewController === table.delegate)
+        XCTAssertTrue(viewController === tableView.dataSource)
+        XCTAssertTrue(viewController === tableView.delegate)
     }
 
     func test_loadView() {
-        XCTAssertEqual(viewController.view, viewController.tableView)
+        // when
+        let tableView = viewController.tableView
+
+        // then
+        XCTAssertEqual(viewController.view, tableView)
     }
 
     func test_viewDidLoad() {
@@ -47,5 +52,23 @@ class BooksViewControllerTests: XCTestCase {
         XCTAssertTrue(viewController.navigationItem.leftBarButtonItem?.target === viewController)
         XCTAssertEqual(viewController.navigationItem.leftBarButtonItem?.action, #selector(viewController.logoutButtonTapped))
         XCTAssertTrue(presenterMock.getDataWasCalled)
+    }
+
+    func test_tableViewDataSource() {
+        // given
+        let tableView = viewController.tableView
+        tableView.dataSource = viewController
+        tableView.delegate = viewController
+        let booksViewModels: [BooksViewModel] = []
+        let imagesViewModels: [ImageViewModel] = []
+        presenterMock.viewModel = BooksViewControllerViewModel(sections: [.books(booksViewModels), .images(imagesViewModels)])
+
+        // when
+        let sections = presenterMock.viewModel!.sections
+
+        // then
+        XCTAssertEqual(viewController.numberOfSections(in: tableView), sections.count)
+        XCTAssertEqual(viewController.tableView(tableView, numberOfRowsInSection: 0), booksViewModels.count)
+        XCTAssertEqual(viewController.tableView(tableView, numberOfRowsInSection: 1), imagesViewModels.count)
     }
 }
