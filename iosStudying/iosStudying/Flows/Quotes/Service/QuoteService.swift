@@ -7,7 +7,12 @@
 
 import Foundation
 
-class QuoteService {
+protocol QuoteServiceProtocol {
+
+    func fetchQuotes(bookID: String?, parameters: PaginationParameters, completion: @escaping (Result<QuoteResponse, Error>) -> Void)
+}
+
+class QuoteService: QuoteServiceProtocol {
 
     let httpClient: HTTPClientProtocol
 

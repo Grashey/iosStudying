@@ -7,24 +7,37 @@
 
 import UIKit
 
-class QuotesPresenter {
+protocol QuotesPresenterProtocol {
+
+    var viewModels: [QuoteViewModel] { get set }
+
+    func loadNext()
+    func operateFavorite(index: Int)
+    func removeAll()
+}
+
+class QuotesPresenter: QuotesPresenterProtocol {
 
     enum Constants {
         static let resultsLimit = 100
     }
 
-    var service: QuoteService? = QuoteService()
+    var service: QuoteServiceProtocol
     var offset = Int.zero
-    private var quotes: [QuoteDoc] = []
+    var quotes: [QuoteDoc] = []
     var viewModels: [QuoteViewModel] = []
-    weak var viewController: QuotesViewController?
+    var viewController: QuotesViewControllerProtocol?
     var isLoading = false
     let dataLoader = DataLoader<String>()
+
+    init(service: QuoteServiceProtocol) {
+        self.service = service
+    }
 
     func loadNext() {
         if !isLoading {
             isLoading = true
-            service?.fetchQuotes(bookID: viewController?.bookID, parameters: PaginationParameters(limit: Constants.resultsLimit, offset: offset)) { [weak self] response in
+            service.fetchQuotes(bookID: viewController?.bookID, parameters: PaginationParameters(limit: Constants.resultsLimit, offset: offset)) { [weak self] response in
                 guard let self = self else { return }
                 switch response {
                 case .success(let data):

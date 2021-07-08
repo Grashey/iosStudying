@@ -16,7 +16,7 @@ struct QuoteResponse: Codable {
 }
 
 // MARK: - Doc
-struct QuoteDoc: Codable {
+struct QuoteDoc: Codable, Equatable {
     let identifier, dialog: String
     let movie: String
     let character: String

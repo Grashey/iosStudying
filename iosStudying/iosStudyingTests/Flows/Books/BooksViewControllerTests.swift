@@ -58,7 +58,6 @@ class BooksViewControllerTests: XCTestCase {
         // given
         let tableView = viewController.tableView
         tableView.dataSource = viewController
-        tableView.delegate = viewController
         let booksViewModels: [BooksViewModel] = []
         let imagesViewModels: [ImageViewModel] = []
         presenterMock.viewModel = BooksViewControllerViewModel(sections: [.books(booksViewModels), .images(imagesViewModels)])

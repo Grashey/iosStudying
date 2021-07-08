@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-struct QuoteViewModel {
+struct QuoteViewModel: Equatable {
     let text: String
     var isFavorite: Bool
     let movieName: String

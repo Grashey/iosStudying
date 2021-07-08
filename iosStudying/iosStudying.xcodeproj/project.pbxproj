@@ -28,6 +28,10 @@
 		4A3344922684B1E100250424 /* MoviesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344912684B1E100250424 /* MoviesFactory.swift */; };
 		4A3344942684B23200250424 /* MoviesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344932684B23200250424 /* MoviesCoordinator.swift */; };
 		4A3344972684BD0300250424 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3344962684BD0300250424 /* MovieTableViewCell.swift */; };
+		4A6872DF269712EB00AD03C3 /* QuotesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6872DE269712EB00AD03C3 /* QuotesPresenterTests.swift */; };
+		4A6872E1269714B400AD03C3 /* QuoteServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6872E0269714B400AD03C3 /* QuoteServiceMock.swift */; };
+		4A6872E32697161E00AD03C3 /* QuotesViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6872E22697161E00AD03C3 /* QuotesViewControllerMock.swift */; };
+		4A6872E52697406700AD03C3 /* DataLoaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6872E42697406700AD03C3 /* DataLoaderMock.swift */; };
 		4A6E015E26692B1E001E5D73 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E015D26692B1E001E5D73 /* R.generated.swift */; };
 		4A6E01622669442A001E5D73 /* Localizible.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E01612669442A001E5D73 /* Localizible.strings */; };
 		4A6E0164266CDA03001E5D73 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E0163266CDA03001E5D73 /* AuthService.swift */; };
@@ -63,6 +67,8 @@
 		4A8B84342665630500680E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8B84332665630500680E62 /* Assets.xcassets */; };
 		4A8B84372665630500680E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A8B84352665630500680E62 /* LaunchScreen.storyboard */; };
 		4A8B844126656B0600680E62 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B844026656B0600680E62 /* BooksViewController.swift */; };
+		4AEBE2572695F917006D5636 /* QuotesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE2562695F917006D5636 /* QuotesViewControllerTests.swift */; };
+		4AEBE2592695FA8E006D5636 /* QuotesPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE2582695FA8E006D5636 /* QuotesPresenterMock.swift */; };
 		858E18028E99AC3818500601 /* Pods_iosStudying.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C33F451D1919B55B018868B /* Pods_iosStudying.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +105,10 @@
 		4A3344912684B1E100250424 /* MoviesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFactory.swift; sourceTree = "<group>"; };
 		4A3344932684B23200250424 /* MoviesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCoordinator.swift; sourceTree = "<group>"; };
 		4A3344962684BD0300250424 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		4A6872DE269712EB00AD03C3 /* QuotesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenterTests.swift; sourceTree = "<group>"; };
+		4A6872E0269714B400AD03C3 /* QuoteServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteServiceMock.swift; sourceTree = "<group>"; };
+		4A6872E22697161E00AD03C3 /* QuotesViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewControllerMock.swift; sourceTree = "<group>"; };
+		4A6872E42697406700AD03C3 /* DataLoaderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderMock.swift; sourceTree = "<group>"; };
 		4A6E015D26692B1E001E5D73 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4A6E01612669442A001E5D73 /* Localizible.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizible.strings; sourceTree = "<group>"; };
 		4A6E0163266CDA03001E5D73 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -138,6 +148,8 @@
 		4A8B84362665630500680E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A8B84382665630500680E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8B844026656B0600680E62 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
+		4AEBE2562695F917006D5636 /* QuotesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewControllerTests.swift; sourceTree = "<group>"; };
+		4AEBE2582695FA8E006D5636 /* QuotesPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenterMock.swift; sourceTree = "<group>"; };
 		4C33F451D1919B55B018868B /* Pods_iosStudying.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosStudying.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FAB9D88435AEDA66863F3ED /* Pods-iosStudying.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosStudying.release.xcconfig"; path = "Target Support Files/Pods-iosStudying/Pods-iosStudying.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,6 +337,7 @@
 			children = (
 				4A6F6136268F421700B10A3A /* Mock */,
 				4A6F6133268E18E200B10A3A /* Books */,
+				4AEBE2542695F8D5006D5636 /* Quotes */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -342,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				4AEBE2532695F899006D5636 /* Books */,
+				4AEBE2552695F8F6006D5636 /* Quotes */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -484,6 +498,26 @@
 				4A6F613D26932C0200B10A3A /* BookServiceMock.swift */,
 			);
 			path = Books;
+			sourceTree = "<group>";
+		};
+		4AEBE2542695F8D5006D5636 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				4AEBE2562695F917006D5636 /* QuotesViewControllerTests.swift */,
+				4A6872DE269712EB00AD03C3 /* QuotesPresenterTests.swift */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
+		4AEBE2552695F8F6006D5636 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				4AEBE2582695FA8E006D5636 /* QuotesPresenterMock.swift */,
+				4A6872E0269714B400AD03C3 /* QuoteServiceMock.swift */,
+				4A6872E22697161E00AD03C3 /* QuotesViewControllerMock.swift */,
+				4A6872E42697406700AD03C3 /* DataLoaderMock.swift */,
+			);
+			path = Quotes;
 			sourceTree = "<group>";
 		};
 		A3B05CDC655860CAC56BDB00 /* Frameworks */ = {
@@ -679,7 +713,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6872E52697406700AD03C3 /* DataLoaderMock.swift in Sources */,
 				4A6F613A2692EAB200B10A3A /* BooksPresenterTests.swift in Sources */,
+				4A6872E32697161E00AD03C3 /* QuotesViewControllerMock.swift in Sources */,
+				4A6872E1269714B400AD03C3 /* QuoteServiceMock.swift in Sources */,
+				4A6872DF269712EB00AD03C3 /* QuotesPresenterTests.swift in Sources */,
+				4AEBE2592695FA8E006D5636 /* QuotesPresenterMock.swift in Sources */,
+				4AEBE2572695F917006D5636 /* QuotesViewControllerTests.swift in Sources */,
 				4A6F6135268E190900B10A3A /* BooksViewControllerTests.swift in Sources */,
 				4A6F6138268F422E00B10A3A /* BooksPresenterMock.swift in Sources */,
 				4A6F613C2692ED6B00B10A3A /* BooksViewControllerMock.swift in Sources */,
