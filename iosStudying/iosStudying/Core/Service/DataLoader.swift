@@ -7,16 +7,7 @@
 
 import Foundation
 
-protocol DataLoaderProtocol {
-
-    associatedtype DataType
-
-    func load(key: String) -> DataType?
-    func save(value: DataType, key: String)
-    func remove(key: String)
-}
-
-class DataLoader<DataType: Codable>: DataLoaderProtocol {
+class DataLoader<DataType: Codable> {
 
     let defaults = UserDefaults.standard
 

@@ -13,7 +13,6 @@ class QuotesPresenterTests: XCTestCase {
     var presenter: QuotesPresenter!
     var viewControllerMock: QuotesViewControllerMock!
     var serviceMock: QuoteServiceMock!
-    var dataLoader: DataLoaderMock!
 
     override func setUpWithError() throws {
         serviceMock = .init()
@@ -55,7 +54,6 @@ class QuotesPresenterTests: XCTestCase {
 
     func test_operateFavorite() {
         // given
-        dataLoader = .init()
         presenter.quotes = TestDataFavorites.quotes
         presenter.viewModels = TestDataFavorites.viewModels
 
@@ -63,9 +61,8 @@ class QuotesPresenterTests: XCTestCase {
         presenter.operateFavorite(index: 0)
 
         // then
-        XCTAssertTrue(dataLoader.invokedLoad)
-        XCTAssertTrue(dataLoader.invokedRemove)
-        XCTAssertTrue(dataLoader.invokedSave)
+        guard let viewModel = presenter.viewModels.first else { return }
+        XCTAssertTrue(viewModel.isFavorite)
     }
 
     func test_removeAll() {

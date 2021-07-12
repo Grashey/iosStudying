@@ -30,15 +30,18 @@ class BooksPresenterTests: XCTestCase {
     func test_getData_success() {
         // given
         serviceMock.stubbedFetchBooksCompletionResult = .success(TestDataSuccess.responseData)
+        let booksViewModels = [BooksViewModel]()
+        let imagesViewModels = presenter.picsArray.map { ImageViewModel(image: $0 ?? UIImage()) }
+        let viewModel = BooksViewControllerViewModel(sections: [.books(booksViewModels), .images(imagesViewModels)])
 
         // when
         presenter.getData()
 
         // then
         XCTAssertEqual(presenter.books, TestDataSuccess.responseData.docs)
-        XCTAssertEqual(presenter.booksViewModels, TestDataSuccess.booksViewModels)
-        // XCTAssertEqual(presenter.imagesViewModels, TestDataSuccess.imagesViewModels)
-        // XCTAssertEqual(presenter.viewModel, TestDataSuccess.viewModel)
+        XCTAssertEqual(presenter.booksViewModels, booksViewModels)
+        XCTAssertEqual(presenter.imagesViewModels, imagesViewModels)
+        XCTAssertEqual(presenter.viewModel, viewModel)
         XCTAssertTrue(viewControllerMock.invokedReload)
     }
 
@@ -52,24 +55,12 @@ class BooksPresenterTests: XCTestCase {
         // then
         print(TestDataFailure.error)   // ????
     }
-
-//    func test_finishFlow() {
-//        XCTAssertTrue(viewControllerMock.invokedOnFinishFlowGetter)
-//    }
-//
-//    func test_getBookIDForChapters(index: Int) {
-//        XCTAssertTrue(presenter.books[index].identifier != nil)
-//    }
-
 }
 
 private extension BooksPresenterTests {
 
     enum TestDataSuccess {
         static let responseData = BookResponse(docs: [], total: 1, limit: 1, offset: 1, page: 1, pages: 1)
-        static let booksViewModels = [BooksViewModel]()
-        static let imagesViewModels = [ImageViewModel(image: UIImage())]
-        static let viewModel = BooksViewControllerViewModel(sections: [.books(booksViewModels), .images(imagesViewModels)])
     }
     enum TestDataFailure: Error {
         case error

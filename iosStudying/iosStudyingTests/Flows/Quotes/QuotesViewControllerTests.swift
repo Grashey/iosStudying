@@ -53,17 +53,17 @@ class QuotesViewControllerTests: XCTestCase {
 
     func test_refreshQuotes() {
         // given
-        let refreshControl = viewController.tableView.refreshControl
+        let refreshControl = viewController.tableView.refreshControl!
 
         // when
-        refreshControl?.beginRefreshing()
+        viewController.refreshQuotes(refreshControl)
 
         // then
         XCTAssertTrue(presenterMock.removeAllWasLoaded)
         XCTAssertTrue(presenterMock.loadNextWasLoaded)
     }
 
-    func test_tableViewDataSource() {
+    func test_tableViewNumberOfRowsInSection() {
         // given
         let tableView = viewController.tableView
 
@@ -77,13 +77,12 @@ class QuotesViewControllerTests: XCTestCase {
     func test_cellForRow() {
         // given
         let tableView = viewController.tableView
-        tableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.description())
 
         // when
         tableView.cellForRow(at: IndexPath(row: 0, section: 0))
 
         // then
-        XCTAssertTrue((tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.description()) != nil))
+        XCTAssertTrue(tableView.dequeueReusableCell(withIdentifier: QuoteTableViewCell.description()) is QuoteTableViewCell)
     }
 
     func test_didSelectRowAt() {
@@ -96,5 +95,4 @@ class QuotesViewControllerTests: XCTestCase {
         // then
         XCTAssertTrue(presenterMock.operateFavoriteWasLoaded)
     }
-
 }
