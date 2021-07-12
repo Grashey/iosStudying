@@ -7,14 +7,27 @@
 
 import UIKit
 
-class BooksPresenter {
+protocol BooksPresenterProtocol {
 
-    weak var viewController: BooksViewController?
-    private var books: [Doc] = []
+    var viewModel: BooksViewControllerViewModel? { get set }
+
+    func getData()
+    func finishFlow()
+    func getBookIDForChapters(index: Int) -> String
+}
+
+class BooksPresenter: BooksPresenterProtocol {
+
+    weak var viewController: BooksViewControllerProtocol?
+    var books: [Doc] = []
     var booksViewModels: [BooksViewModel] = []
     var imagesViewModels: [ImageViewModel] = []
     var viewModel: BooksViewControllerViewModel?
-    let service = BookService()
+    let service: BookServiceProtocol
+
+    init(service: BookServiceProtocol) {
+        self.service = service
+    }
 
     // MARK: Temporary data
     let picsArray = [UIImage(named: "Tweety"),
@@ -29,14 +42,14 @@ class BooksPresenter {
                 self.booksViewModels = self.books.map { BooksViewModel(name: $0.name) }
                 self.imagesViewModels = self.picsArray.map { ImageViewModel(image: $0 ?? UIImage()) }
                 self.viewModel = BooksViewControllerViewModel(sections: [.books(self.booksViewModels), .images(self.imagesViewModels)])
-                self.viewController?.tableView.reloadData()
+                self.viewController?.reload()
             case .failure(let error):
                 print(error)
             }
         }
     }
 
-    @objc func finishFlow() {
+    func finishFlow() {
         UserDefaults.standard.set(false, forKey: PublicConstants.authKey)
         viewController?.onFinishFlow?()
     }

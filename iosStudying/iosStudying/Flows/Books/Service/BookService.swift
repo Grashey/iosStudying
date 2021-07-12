@@ -7,7 +7,12 @@
 
 import Foundation
 
-class BookService {
+protocol BookServiceProtocol {
+
+    func fetchBooks(completion: @escaping (Result<BookResponse, Error>) -> Void)
+}
+
+class BookService: BookServiceProtocol {
 
     let httpClient: HTTPClientProtocol
 

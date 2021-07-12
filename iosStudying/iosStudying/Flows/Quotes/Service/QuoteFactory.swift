@@ -11,7 +11,7 @@ class QuoteFactory {
 
     func create(bookID: String? = nil) -> UIViewController {
        let quoteViewController = QuotesViewController()
-        let quotePresenter = QuotesPresenter()
+        let quotePresenter = QuotesPresenter(service: QuoteService())
         quoteViewController.presenter = quotePresenter
         quotePresenter.viewController = quoteViewController
         quoteViewController.bookID = bookID

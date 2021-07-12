@@ -7,29 +7,33 @@
 
 import UIKit
 
-struct BooksViewModel {
+struct BooksViewModel: Equatable {
     let name: String
 }
 
-struct ImageViewModel {
+struct ImageViewModel: Equatable {
     let image: UIImage
 }
 
-struct MusicViewModel {
-    let genre: String
-}
+struct BooksViewControllerViewModel: Equatable {
 
-struct BooksViewControllerViewModel {
-    enum Cells {
+    enum Cells: Equatable {
         case books([BooksViewModel])
         case images([ImageViewModel])
     }
     let sections: [Cells]
 }
 
-class BooksViewController: UIViewController {
+protocol BooksViewControllerProtocol: AnyObject {
 
-    var presenter: BooksPresenter?
+    var onFinishFlow: (() -> Void)? { get set }
+
+    func reload()
+}
+
+class BooksViewController: UIViewController, BooksViewControllerProtocol {
+
+    var presenter: BooksPresenterProtocol?
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -51,15 +55,20 @@ class BooksViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = R.string.localizible.booksViewControllerTitle()
-        configureExitButton()
-        presenter?.getData()
-    }
-
-    func configureExitButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localizible.logoutButtonTitle(),
                                                                 style: .plain,
                                                                 target: self,
-                                                                action: #selector(presenter?.finishFlow))
+                                                                action: #selector(logoutButtonTapped))
+
+        presenter?.getData()
+    }
+
+    @objc func logoutButtonTapped() {
+        presenter?.finishFlow()
+    }
+
+    func reload() {
+        tableView.reloadData()
     }
 }
 
@@ -98,6 +107,7 @@ extension BooksViewController: UITableViewDataSource {
 }
 
 extension BooksViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch presenter?.viewModel?.sections[indexPath.section] {

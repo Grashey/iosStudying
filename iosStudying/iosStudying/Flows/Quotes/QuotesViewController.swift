@@ -13,9 +13,18 @@ enum Constants {
     static let indexInset = 10
 }
 
-class QuotesViewController: UIViewController {
+protocol QuotesViewControllerProtocol {
 
-    var presenter: QuotesPresenter?
+    var bookID: String? { get set }
+
+    func reloadData()
+    func refreshQuotes(_ sender: Any)
+    func showEmptyQuotesLabel()
+}
+
+class QuotesViewController: UIViewController, QuotesViewControllerProtocol {
+
+    var presenter: QuotesPresenterProtocol?
     var bookID: String?
 
     lazy var tableView: UITableView = {
@@ -79,11 +88,6 @@ extension QuotesViewController: UITableViewDataSource {
         }
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.operateFavorite(index: indexPath.row)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
 }
 
 extension QuotesViewController: UITableViewDelegate {
@@ -93,5 +97,10 @@ extension QuotesViewController: UITableViewDelegate {
         if count - Constants.indexInset < indexPath.row {
             presenter?.loadNext()
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.operateFavorite(index: indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
